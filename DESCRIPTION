@@ -5,7 +5,9 @@ Date: 2017-12-14
 Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
 Description: Defines a data structure for profiler data, and methods to read and
     write from the 'Rprof' and 'pprof' proto file formats.
-Imports: methods
+Imports: 
+    methods,
+    rlang
 Suggests: RProtoBuf
 License: GPL-3
 Encoding: UTF-8
