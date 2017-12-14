@@ -1,4 +1,4 @@
-Package: profiler
+Package: profile
 Title: Read, Manipulate, and Write Profiler Data
 Version: 0.0-0
 Date: 2017-12-14
@@ -8,7 +8,7 @@ Description: Defines a data structure for profiler data, and methods to read and
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-BugReports: https://github.com/krlmlr/profiler/issues
-URL: https://github.com/krlmlr/profiler, http://krlmlr.github.io/profiler
+BugReports: https://github.com/krlmlr/profile/issues
+URL: https://github.com/krlmlr/profile, http://krlmlr.github.io/profile
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.0.1
