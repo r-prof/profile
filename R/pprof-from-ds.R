@@ -1,19 +1,34 @@
 ds_to_msg <- function(ds) {
+  provide_proto()
+
   msg <- RProtoBuf::new(perftools.profiles.Profile)
 
   msg$string_table <- unique(c(
     "",
-    ds$mappings$filename,
+    ds$sample_types$type,
+    ds$sample_types$unit,
     ds$functions$name,
     ds$functions$system_name,
     ds$functions$filename
   ))
 
+  add_sample_types_to_msg(ds$sample_types, msg)
   add_samples_to_msg(ds$samples, msg)
-  add_mappings_to_msg(ds$mappings, msg)
   add_locations_to_msg(ds$locations, msg)
   add_functions_to_msg(ds$functions, msg)
   msg
+}
+
+add_sample_types_to_msg <- function(sample_types, msg) {
+  sample_types$type <- match(sample_types$type, msg$string_table) - 1L
+  sample_types$unit <- match(sample_types$unit, msg$string_table) - 1L
+
+  msg$sample_type <- lapply(split_rows(sample_types), function(st) {
+    st_msg <- RProtoBuf::new(perftools.profiles.ValueType)
+    st_msg$type <- st$type
+    st_msg$unit <- st$unit
+    st_msg
+  })
 }
 
 add_samples_to_msg <- function(samples, msg) {
@@ -24,17 +39,6 @@ add_samples_to_msg <- function(samples, msg) {
     s_msg$value <- s$value
     s_msg$location_id <- s$locations[[1]]$location_id
     s_msg
-  })
-}
-
-add_mappings_to_msg <- function(mappings, msg) {
-  mappings$filename <- match(mappings$filename, msg$string_table) - 1L
-
-  msg$mapping <- lapply(split_rows(mappings), function(m) {
-    m_msg <- RProtoBuf::new(perftools.profiles.Mapping)
-    m_msg$id <- m$mapping_id
-    m_msg$filename <- m$filename
-    m_msg
   })
 }
 

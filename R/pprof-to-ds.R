@@ -1,16 +1,31 @@
 msg_to_ds <- function(msg) {
+  sample_types <- get_sample_types_from_msg(msg)
   samples <- get_samples_from_msg(msg)
-  mappings <- get_mappings_from_msg(msg)
   locations <- get_locations_from_msg(msg)
   functions <- get_functions_from_msg(msg)
 
   tibble::lst(
+    sample_types,
     samples,
-    mappings,
     locations,
     functions,
     .msg = as.list(msg)
   )
+}
+
+get_sample_types_from_msg <- function(msg) {
+  sample_types <- map(msg$sample_type, function(st) {
+    tibble::tibble(
+      type = as.integer(st$type),
+      unit = as.integer(st$unit)
+    )
+  })
+  sample_types <- merge_rows(sample_types)
+
+  sample_types$type <- msg$string_table[sample_types$type + 1]
+  sample_types$unit <- msg$string_table[sample_types$unit + 1]
+
+  sample_types[1, ]
 }
 
 get_samples_from_msg <- function(msg) {
@@ -25,23 +40,11 @@ get_samples_from_msg <- function(msg) {
   samples
 }
 
-get_mappings_from_msg <- function(msg) {
-  mappings <- map(msg$mapping, function(m) {
-    tibble::as_tibble(as.list(m))
-  })
-  mappings <- tibble::as_tibble(do.call(rbind, mappings))
-  mappings$mapping_id <- as.integer(mappings$id)
-  mappings$id <- NULL
-  mappings$build_id <- as.integer(mappings$build_id)
-  mappings$filename <- msg$string_table[mappings$filename + 1]
-
-  names <- c("mapping_id", "filename")
-  mappings[union(names, names(mappings))]
-}
-
 get_locations_from_msg <- function(msg) {
   locations <- map(msg$location, function(loc) {
     loc_list <- as.list(loc)
+    loc_list$address <- NULL
+
     # Using the last entry for inlined functions, see profile.proto
     if (length(loc_list$line) > 0) {
       loc_line <- as.list(loc_list$line[[length(loc_list$line)]])

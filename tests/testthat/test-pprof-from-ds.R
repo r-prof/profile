@@ -1,10 +1,5 @@
 context("pprof-from-ds")
 
-strip_msg <- function(x) {
-  x$.msg <- NULL
-  x
-}
-
 test_that("roundtrip works", {
   ds <- read_pprof("proto/1.out.prof.pb.gz")
 

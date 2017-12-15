@@ -1,4 +1,4 @@
-#' Read a pprof file from a proto file
+#' Read profiler data from a proto file
 #'
 #' @param path A file name
 #' @export
@@ -8,18 +8,9 @@ read_pprof <- function(path) {
 }
 
 read_msg <- function(path) {
-  if (!is_installed("RProtoBuf")) {
-    abort("Package RProtoBuf is required to read pprof files.")
-  }
-
-  install_proto_files()
+  provide_proto()
 
   con <- gzfile(path, "rb")
   defer(close(con))
   RProtoBuf::read(perftools.profiles.Profile, con)
-}
-
-
-install_proto_files <- function() {
-  RProtoBuf::readProtoFiles(system.file("proto", "profile.proto", package = utils::packageName()))
 }
