@@ -9,7 +9,7 @@ msg_to_ds <- function(msg) {
     mappings,
     locations,
     functions,
-    msg = as.list(msg)
+    .msg = as.list(msg)
   )
 }
 
