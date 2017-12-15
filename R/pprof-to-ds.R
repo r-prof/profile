@@ -17,7 +17,7 @@ get_samples_from_msg <- function(msg) {
   samples <- map(msg$sample, function(s) {
     tibble::tibble(
       value = as.integer(s$value[[1]]),
-      locations = list(tibble::tibble(location_id = s$location_id))
+      locations = list(tibble::tibble(location_id = as.integer(s$location_id)))
     )
   })
   samples <- tibble::as_tibble(do.call(rbind, samples))
