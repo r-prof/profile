@@ -2,23 +2,27 @@ msg_to_ds <- function(msg) {
   samples <- get_samples_from_msg(msg)
   mappings <- get_mappings_from_msg(msg)
   locations <- get_locations_from_msg(msg)
+  functions <- get_functions_from_msg(msg)
 
   tibble::lst(
     samples,
     mappings,
     locations,
+    functions,
     msg = as.list(msg)
   )
 }
 
 get_samples_from_msg <- function(msg) {
-  sample_locs <- map(msg$sample, function(s) {
-    tibble::tibble(location_id = s$location_id)
+  samples <- map(msg$sample, function(s) {
+    tibble::tibble(
+      value = as.integer(s$value[[1]]),
+      locations = list(tibble::tibble(location_id = s$location_id))
+    )
   })
-  tibble::tibble(
-    sample_id = seq_along(sample_locs),
-    loc = sample_locs
-  )
+  samples <- tibble::as_tibble(do.call(rbind, samples))
+  samples <- tibble::rowid_to_column(samples, "sample_id")
+  samples
 }
 
 get_mappings_from_msg <- function(msg) {
@@ -56,4 +60,22 @@ get_locations_from_msg <- function(msg) {
 
   names <- c("location_id", "mapping_id", "function_id", "line")
   locations[union(names, names(locations))]
+}
+
+get_functions_from_msg <- function(msg) {
+  functions <- map(msg$`function`, function(f) {
+    tibble::as_tibble(as.list(f))
+  })
+  functions <- tibble::as_tibble(do.call(rbind, functions))
+  functions$function_id <- as.integer(functions$id)
+  functions$id <- NULL
+
+  functions$name <- msg$string_table[functions$name + 1]
+  functions$system_name <- msg$string_table[functions$system_name + 1]
+  functions$filename <- msg$string_table[functions$filename + 1]
+
+  functions$start_line <- as.integer(functions$start_line)
+
+  names <- c("function_id")
+  functions[union(names, names(functions))]
 }
