@@ -20,8 +20,8 @@ In case of major updates, compatibility functions will be provided.
 The \code{validate_profile_v1()} function checks a profile data object
 for compatibility with the v1.0.0 format.
 
-The \code{validate_profile_v1()} function checks a profile data object
-for compatibility with most recent format
+The \code{validate_profile()} function checks a profile data object
+for compatibility with the most recent format
 (currently v1.0.0).
 }
 \details{
@@ -69,6 +69,6 @@ source file, zero if unknown. All values must be nonnegative.
 }
 \section{Data model}{
 
-\figure{dm.png}{}
+\figure{dm.png}
 }
 

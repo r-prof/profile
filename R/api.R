@@ -8,7 +8,7 @@
 #' for compatibility with the v1.0.0 format.
 #'
 #' @section Data model:
-#' \figure{dm.png}{}
+#' \figure{dm.png}
 #' @name validate_profile
 #' @param x Profile data as returned by [read_pprof()].
 #' @export
@@ -96,8 +96,8 @@ validate_profile_v1 <- function(x) {
 
 #' @export
 #' @description
-#' The `validate_profile_v1()` function checks a profile data object
-#' for compatibility with most recent format
+#' The `validate_profile()` function checks a profile data object
+#' for compatibility with the most recent format
 validate_profile <- function(x) {
   #' (currently v1.0.0).
   validate_profile_v1(x)

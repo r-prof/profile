@@ -4,3 +4,4 @@
 ^appveyor\.yml$
 ^tic\.R$
 ^data-raw$
+^docs$
