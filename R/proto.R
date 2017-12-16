@@ -9,4 +9,3 @@ provide_proto <- function() {
 install_proto_files <- function() {
   RProtoBuf::readProtoFiles(system.file("proto", "profile.proto", package = utils::packageName()))
 }
-
