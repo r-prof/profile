@@ -2,5 +2,5 @@
 #'
 #' @import rlang
 #' @import methods
-#' @import withr
+#' @importFrom withr defer
 "_PACKAGE"
