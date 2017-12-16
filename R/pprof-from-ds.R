@@ -69,3 +69,12 @@ add_functions_to_msg <- function(functions, msg) {
     f_msg
   })
 }
+
+utils::globalVariables("perftools.profiles.Function")
+utils::globalVariables("perftools.profiles.Label")
+utils::globalVariables("perftools.profiles.Line")
+utils::globalVariables("perftools.profiles.Location")
+utils::globalVariables("perftools.profiles.Mapping")
+utils::globalVariables("perftools.profiles.Profile")
+utils::globalVariables("perftools.profiles.Sample")
+utils::globalVariables("perftools.profiles.ValueType")
