@@ -46,7 +46,6 @@ add_locations_to_msg <- function(locations, msg) {
   msg$location <- lapply(split_rows(locations), function(loc) {
     loc_msg <- RProtoBuf::new(perftools.profiles.Location)
     loc_msg$id <- loc$location_id
-    loc_msg$mapping_id <- loc$mapping_id
     if (!is.na(loc$function_id)) {
       loc_msg$line <- list(RProtoBuf::new(perftools.profiles.Line))
       loc_msg$line[[1]]$function_id <- loc$function_id

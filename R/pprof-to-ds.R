@@ -43,6 +43,7 @@ get_samples_from_msg <- function(msg) {
 get_locations_from_msg <- function(msg) {
   locations <- map(msg$location, function(loc) {
     loc_list <- as.list(loc)
+    loc_list$mapping_id <- NULL
     loc_list$address <- NULL
 
     # Using the last entry for inlined functions, see profile.proto
@@ -57,11 +58,10 @@ get_locations_from_msg <- function(msg) {
   locations <- tibble::as_tibble(do.call(rbind, locations))
   locations$location_id <- as.integer(locations$id)
   locations$id <- NULL
-  locations$mapping_id <- as.integer(locations$mapping_id)
   locations$function_id <- as.integer(locations$function_id)
   locations$line <- as.integer(locations$line)
 
-  names <- c("location_id", "mapping_id", "function_id", "line")
+  names <- c("location_id", "function_id", "line")
   locations[union(names, names(locations))]
 }
 
