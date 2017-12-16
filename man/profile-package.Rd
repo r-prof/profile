@@ -15,9 +15,9 @@ write from the 'Rprof' and 'pprof' proto file formats.
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/krlmlr/profile}
-  \item \url{http://krlmlr.github.io/profile}
-  \item Report bugs at \url{https://github.com/krlmlr/profile/issues}
+  \item \url{https://github.com/r-prof/profile}
+  \item \url{http://r-prof.github.io/profile}
+  \item Report bugs at \url{https://github.com/r-prof/profile/issues}
 }
 
 }
