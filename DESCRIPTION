@@ -8,8 +8,10 @@ Description: Defines a data structure for profiler data, and methods to read and
 Imports:
     methods,
     rlang,
+    tibble,
     withr
-Suggests: RProtoBuf,
+Suggests: 
+    RProtoBuf,
     testthat
 License: GPL-3
 Encoding: UTF-8
