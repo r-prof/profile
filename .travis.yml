@@ -37,3 +37,11 @@ env:
 
 #services
 services:
+
+#addons
+addons:
+  apt:
+    packages:
+    - libprotoc-dev
+    - libprotobuf-dev
+    - protobuf-compiler
