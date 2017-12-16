@@ -1,6 +1,8 @@
 context("pprof-write")
 
 test_that("roundtrip", {
+  skip_if_not_installed("RProtoBuf")
+
   ds <- read_pprof("proto/1.out.prof.pb.gz")
 
   path <- tempfile("profiler", fileext = ".pb.gz")
