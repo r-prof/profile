@@ -4,13 +4,15 @@
 \name{profile-package}
 \alias{profile}
 \alias{profile-package}
-\title{profile: Read, Manipulate, and Write Profiler Data}
+\title{The profiler package defines a stable data format for profiler data,
+see \code{\link[=validate_profile]{validate_profile()}} for a definition.
+It supports reading and writing \link{Rprof} \code{.out} and
+\href{https://github.com/google/pprof}{pprof} \code{.proto} files.}
 \description{
-Defines a data structure for profiler data, and methods to read and
-write from the 'Rprof' and 'pprof' proto file formats.
-}
-\examples{
-
+The profiler package defines a stable data format for profiler data,
+see \code{\link[=validate_profile]{validate_profile()}} for a definition.
+It supports reading and writing \link{Rprof} \code{.out} and
+\href{https://github.com/google/pprof}{pprof} \code{.proto} files.
 }
 \seealso{
 Useful links:
