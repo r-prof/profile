@@ -36,7 +36,6 @@ get_samples_from_msg <- function(msg) {
     )
   })
   samples <- tibble::as_tibble(do.call(rbind, samples))
-  samples <- tibble::rowid_to_column(samples, "sample_id")
   samples
 }
 

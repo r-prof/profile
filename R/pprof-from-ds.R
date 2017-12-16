@@ -32,8 +32,6 @@ add_sample_types_to_msg <- function(sample_types, msg) {
 }
 
 add_samples_to_msg <- function(samples, msg) {
-  stopifnot(diff(samples$sample_id) == 1)
-
   msg$sample <- lapply(split_rows(samples), function(s) {
     s_msg <- RProtoBuf::new(perftools.profiles.Sample)
     s_msg$value <- s$value
