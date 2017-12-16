@@ -1,4 +1,5 @@
 ds_to_msg <- function(ds) {
+  validate_profile(ds)
   provide_proto()
 
   msg <- RProtoBuf::new(perftools.profiles.Profile)
