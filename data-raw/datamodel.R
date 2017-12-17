@@ -12,6 +12,6 @@ dm_r <- dm_add_references(
   samples$locations == locations$location_id,
   locations$function_id == functions$function_id
 )
-graph <- dm_create_graph(dm_r, rankdir = "LR", col_attr = c("column", "type"))
+graph <- dm_create_graph(dm_r, rankdir = "LR", col_attr = c("column", "type"), columnArrows = TRUE)
 dm_render_graph(graph)
 dm_export_graph(graph, "man/figures/dm.png")
