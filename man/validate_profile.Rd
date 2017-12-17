@@ -27,7 +27,7 @@ for compatibility with the most recent format
 \details{
 The profile data is stored in a named list of \link{tibble}s.
 (Exception: Components with names starting with a dot are permitted
-but will be ignored.)
+after the required components, but will be ignored.)
 This named list has the following components, subsequently referred to as
 \emph{tables}:
 \itemize{
@@ -38,11 +38,15 @@ This named list has the following components, subsequently referred to as
 }
 
 The \code{sample_types} table has two character columns, \code{type} and \code{unit}.
+Additional columns with a leading dot in the name are allowed
+after the required columns.
 It is currently restricted to one row with values \code{"samples"} and \code{"count"},
 respectively.
 
 The \code{samples} table has two columns, \code{value} (integer) and \code{locations}
 (list).
+Additional columns with a leading dot in the name are allowed
+after the required columns.
 The \code{value} column describes the number of consecutive samples for the
 given location, and must be greater than zero.
 Each element of the \code{locations} column is a tibble with one integer column,
@@ -52,6 +56,8 @@ table must exist,
 
 The \code{locations} table has three integer columns, \code{location_id},
 \code{function_id}, and \code{line}.
+Additional columns with a leading dot in the name are allowed
+after the required columns.
 All \code{location_id} values are unique.
 For each \code{function_id} value a corresponding observation in the \code{functions}
 table must exist. \code{NA} values are permitted.
@@ -61,6 +67,8 @@ corresponds to, zero if unknown. All values must be nonnegative.
 
 The \code{functions} table has five columns, \code{function_id} (integer),
 \code{name}, \code{system_name} and \code{file_name} (character), and \code{start_line} (integer).
+Additional columns with a leading dot in the name are allowed
+after the required columns.
 All \code{function_id} values are unique.
 The \code{name}, \code{system_name} and \code{filename} columns describe function names
 (demangled and mangled), and source file names for a function.

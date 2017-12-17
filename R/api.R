@@ -16,9 +16,9 @@ validate_profile_v1 <- function(x) {
   #' @details
   #' The profile data is stored in a named list of [tibble]s.
   #' (Exception: Components with names starting with a dot are permitted
-  #' but will be ignored.)
+  #' after the required components, but will be ignored.)
   stopifnot(is.list(x))
-  components <- grep("^[^.]", names(x), value = TRUE)
+  components <- undotted(names(x))
   stopifnot(map_lgl(x[components], tibble::is_tibble))
 
   #' This named list has the following components, subsequently referred to as
@@ -27,11 +27,13 @@ validate_profile_v1 <- function(x) {
   #' - `samples`
   #' - `locations`
   #' - `functions`
-  stopifnot(c("sample_types", "samples", "locations", "functions") %in% names(x))
+  stopifnot(undotted(names(x)) == c("sample_types", "samples", "locations", "functions"))
 
   #'
   #' The `sample_types` table has two character columns, `type` and `unit`.
-  stopifnot(names(x$sample_types) == c("type", "unit"))
+  #' Additional columns with a leading dot in the name are allowed
+  #' after the required columns.
+  stopifnot(undotted(names(x$sample_types)) == c("type", "unit"))
   stopifnot(is.character(x$sample_types$type))
   stopifnot(is.character(x$sample_types$unit))
   #' It is currently restricted to one row with values `"samples"` and `"count"`,
@@ -43,7 +45,9 @@ validate_profile_v1 <- function(x) {
   #'
   #' The `samples` table has two columns, `value` (integer) and `locations`
   #' (list).
-  stopifnot(names(x$samples) == c("value", "locations"))
+  #' Additional columns with a leading dot in the name are allowed
+  #' after the required columns.
+  stopifnot(undotted(names(x$samples)) == c("value", "locations"))
   stopifnot(is.integer(x$samples$value))
   stopifnot(is.list(x$samples$locations))
   #' The `value` column describes the number of consecutive samples for the
@@ -61,7 +65,9 @@ validate_profile_v1 <- function(x) {
   #'
   #' The `locations` table has three integer columns, `location_id`,
   #' `function_id`, and `line`.
-  stopifnot(names(x$locations) == c("location_id", "function_id", "line"))
+  #' Additional columns with a leading dot in the name are allowed
+  #' after the required columns.
+  stopifnot(undotted(names(x$locations)) == c("location_id", "function_id", "line"))
   stopifnot(is.integer(x$locations$location_id))
   stopifnot(is.integer(x$locations$function_id))
   stopifnot(is.integer(x$locations$line))
@@ -78,7 +84,9 @@ validate_profile_v1 <- function(x) {
   #'
   #' The `functions` table has five columns, `function_id` (integer),
   #' `name`, `system_name` and `file_name` (character), and `start_line` (integer).
-  stopifnot(names(x$functions) == c("function_id", "name", "system_name", "filename", "start_line"))
+  #' Additional columns with a leading dot in the name are allowed
+  #' after the required columns.
+  stopifnot(undotted(names(x$functions)) == c("function_id", "name", "system_name", "filename", "start_line"))
   stopifnot(is.integer(x$functions$function_id))
   stopifnot(is.character(x$functions$name))
   stopifnot(is.character(x$functions$system_name))
@@ -101,4 +109,8 @@ validate_profile_v1 <- function(x) {
 validate_profile <- function(x) {
   #' (currently v1.0.0).
   validate_profile_v1(x)
+}
+
+undotted <- function(x) {
+  x[seq_len(max(grep("^[^.]", x)))]
 }
