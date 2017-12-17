@@ -4,7 +4,9 @@
 #' @export
 read_rprof <- function(path) {
   rprof_ll <- read_rprof_ll(path)
-  rprof_to_ds(rprof_ll)
+  ds <- rprof_to_ds(rprof_ll)
+  validate_profile(ds)
+  ds
 }
 
 read_rprof_ll <- function(path) {

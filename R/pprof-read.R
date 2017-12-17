@@ -4,7 +4,9 @@
 #' @export
 read_pprof <- function(path) {
   msg <- read_msg(path)
-  msg_to_ds(msg)
+  ds <- msg_to_ds(msg)
+  validate_profile(ds)
+  ds
 }
 
 read_msg <- function(path) {
