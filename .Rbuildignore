@@ -5,3 +5,4 @@
 ^tic\.R$
 ^data-raw$
 ^docs$
+^_pkgdown\.yml$
