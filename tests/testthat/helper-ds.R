@@ -1,4 +1,4 @@
-strip_msg <- function(x) {
-  x$.msg <- NULL
+strip_dots <- function(x) {
+  x[grep("^[.]", names(x))] <- NULL
   x
 }

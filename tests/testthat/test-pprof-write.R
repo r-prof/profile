@@ -12,5 +12,5 @@ test_that("roundtrip", {
   ds1 <- read_pprof(path)
   expect_error(validate_profile(ds1), NA)
 
-  expect_identical(strip_msg(ds), strip_msg(ds1))
+  expect_identical(strip_dots(ds), strip_dots(ds1))
 })
