@@ -59,8 +59,10 @@ validate_profile_v1 <- function(x) {
   stopifnot(map_chr(x$samples$locations, map_chr, class) == "integer")
   stopifnot(map_chr(x$samples$locations, names) == "location_id")
   #' For each `location_id` value a corresponding observation in the `locations`
-  #' table must exist,
+  #' table must exist.
   stopifnot(unlist(map(x$samples$locations, "[[", "location_id")) %in% x$locations$location_id)
+  #' The locations are listed in inner-first order, i.e., the first location
+  #' corresponds to the innermost entry of the stack trace.
 
   #'
   #' The `locations` table has three integer columns, `location_id`,

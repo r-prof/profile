@@ -52,7 +52,9 @@ given location, and must be greater than zero.
 Each element of the \code{locations} column is a tibble with one integer column,
 \code{location_id}.
 For each \code{location_id} value a corresponding observation in the \code{locations}
-table must exist,
+table must exist.
+The locations are listed in inner-first order, i.e., the first location
+corresponds to the innermost entry of the stack trace.
 
 The \code{locations} table has three integer columns, \code{location_id},
 \code{function_id}, and \code{line}.
