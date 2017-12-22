@@ -96,6 +96,9 @@ validate_profile_v1 <- function(x) {
   stopifnot(!anyDuplicated(x$functions$function_id))
   #' The `name`, `system_name` and `filename` columns describe function names
   #' (demangled and mangled), and source file names for a function.
+  #' Both `name` and `system_name` must not contain empty strings.
+  stopifnot(x$functions$name != "")
+  stopifnot(x$functions$system_name != "")
   #' The `start_line` column describes the start line of a function in its
   #' source file, zero if unknown. All values must be nonnegative.
   stopifnot(x$functions$start_line >= 0)

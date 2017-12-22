@@ -72,6 +72,7 @@ after the required columns.
 All \code{function_id} values are unique.
 The \code{name}, \code{system_name} and \code{filename} columns describe function names
 (demangled and mangled), and source file names for a function.
+Both \code{name} and \code{system_name} must not contain empty strings.
 The \code{start_line} column describes the start line of a function in its
 source file, zero if unknown. All values must be nonnegative.
 }

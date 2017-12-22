@@ -73,7 +73,9 @@ get_functions_from_msg <- function(msg) {
   functions$id <- NULL
 
   functions$name <- msg$string_table[functions$name + 1]
+  functions$name[functions$name == ""] <- "<?>"
   functions$system_name <- msg$string_table[functions$system_name + 1]
+  functions$system_name[functions$system_name == ""] <- "<?>"
   functions$filename <- msg$string_table[functions$filename + 1]
 
   functions$start_line <- as.integer(functions$start_line)

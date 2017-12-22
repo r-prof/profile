@@ -55,6 +55,9 @@ add_locations_to_msg <- function(locations, msg) {
 }
 
 add_functions_to_msg <- function(functions, msg) {
+  functions$name[functions$name == "<?>"] <- ""
+  functions$system_name[functions$system_name == "<?>"] <- ""
+
   functions$name <- match(functions$name, msg$string_table) - 1L
   functions$system_name <- match(functions$system_name, msg$string_table) - 1L
   functions$filename <- match(functions$filename, msg$string_table) - 1L
