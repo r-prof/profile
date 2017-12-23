@@ -18,5 +18,5 @@ Encoding: UTF-8
 LazyData: true
 BugReports: https://github.com/r-prof/profile/issues
 URL: https://github.com/r-prof/profile, http://r-prof.github.io/profile
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate", "pkgapi::api_roclet"))
 RoxygenNote: 6.0.1
