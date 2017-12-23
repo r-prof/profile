@@ -19,7 +19,7 @@ The goal of profile is to read and write files that contain run time profiling d
 - Files created by [`Rprof()`](https://www.rdocumentation.org/packages/utils/versions/3.4.3/topics/Rprof)
 - `.proto` files written by [`pprof -proto`](https://github.com/google/pprof), these can also be read by `pprof`
 
-The data is available to the user for inspection and manipulation in a documented stable data format.
+The data is available to the user for inspection and manipulation in a [documented stable data format](https://r-prof.github.io/profile/reference/validate_profile.html).
 
 ## Installation
 
