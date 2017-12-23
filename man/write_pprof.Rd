@@ -4,13 +4,14 @@
 \alias{write_pprof}
 \title{Write profiler data to a proto file}
 \usage{
-write_pprof(path, ds)
+write_pprof(ds, path)
 }
 \arguments{
-\item{path}{A file name}
+\item{ds}{Profiler data, see \code{\link[=validate_profile]{validate_profile()}}}
 
-\item{ds}{Profiler data}
+\item{path}{Target file name}
 }
 \description{
-Write profiler data to a proto file
+Use the \href{https://github.com/google/pprof}{pprof program} to read and
+analyze the file created by this function.
 }

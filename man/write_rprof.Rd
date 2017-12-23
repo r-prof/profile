@@ -4,13 +4,14 @@
 \alias{write_rprof}
 \title{Write profiler data to an R profiler file}
 \usage{
-write_rprof(path, ds)
+write_rprof(ds, path)
 }
 \arguments{
-\item{path}{A file name}
+\item{ds}{Profiler data, see \code{\link[=validate_profile]{validate_profile()}}}
 
-\item{ds}{Profiler data}
+\item{path}{Target file name}
 }
 \description{
-Write profiler data to an R profiler file
+Use the profvis or proftools R packages to further analyze files created by
+this function.
 }

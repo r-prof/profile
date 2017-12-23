@@ -6,7 +6,7 @@ profile
 The goal of profile is to read and write files that contain run time profiling data. Currently, profile supports:
 
 -   Files created by [`Rprof()`](https://www.rdocumentation.org/packages/utils/versions/3.4.3/topics/Rprof)
--   `.proto` files written by [`pprof -proto`](https://github.com/google/pprof)
+-   `.proto` files written by [`pprof -proto`](https://github.com/google/pprof), these can also be read by `pprof`
 
 The data is available to the user for inspection and manipulation in a documented stable data format.
 
@@ -31,5 +31,5 @@ ds <- read_rprof("tests/testthat/rprof/1.out")
 names(ds)
 #> [1] "sample_types" "samples"      "locations"    "functions"   
 #> [5] ".rprof"
-write_pprof(file.path(tempdir(), "1.pb.gz"), ds)
+write_pprof(ds, file.path(tempdir(), "1.pb.gz"))
 ```

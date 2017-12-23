@@ -7,7 +7,7 @@ test_that("roundtrip", {
   # Validating on write
 
   path <- tempfile("profiler", fileext = ".pb.gz")
-  write_pprof(path, ds)
+  write_pprof(ds, path)
 
   ds1 <- read_pprof(path)
   expect_error(validate_profile(ds1), NA)
