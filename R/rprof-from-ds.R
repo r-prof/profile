@@ -2,7 +2,7 @@ ds_to_rprof <- function(ds) {
   validate_profile(ds)
 
   . <- ds$locations
-  . <- merge(., ds$functions[c("function_id", "name", "filename")], by = "function_id", sort = FALSE)
+  . <- merge(., ds$functions[c("function_id", "name", "filename")], by = "function_id", sort = FALSE, all.x = TRUE)
   . <- .[-1L]
   . <- tibble::as_tibble(.)
   location_files <- .
