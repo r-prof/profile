@@ -4,10 +4,16 @@
 \alias{read_pprof}
 \title{Read profiler data from a proto file}
 \usage{
-read_pprof(path)
+read_pprof(path, ..., version = "1.0")
 }
 \arguments{
 \item{path}{A file name}
+
+\item{...}{Ignored}
+
+\item{version}{Version of the data, currently only \code{"1.0"} is supported.
+Pass an explicit value to this argument if your code depends on the data
+format.}
 }
 \description{
 Read profiler data from a proto file

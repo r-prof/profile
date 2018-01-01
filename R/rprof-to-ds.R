@@ -8,6 +8,7 @@ rprof_to_ds <- function(rprof) {
   flat_rprof <- add_samples_to_flat_rprof(flat_rprof)
 
   tibble::lst(
+    meta = get_default_meta(),
     sample_types,
     samples = flat_rprof$samples,
     locations = flat_rprof$locations,

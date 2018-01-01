@@ -5,6 +5,7 @@ msg_to_ds <- function(msg) {
   functions <- get_functions_from_msg(msg)
 
   tibble::lst(
+    meta = get_default_meta(),
     sample_types,
     samples,
     locations,

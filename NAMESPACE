@@ -3,7 +3,6 @@
 export(read_pprof)
 export(read_rprof)
 export(validate_profile)
-export(validate_profile_v1)
 export(write_pprof)
 export(write_rprof)
 import(methods)

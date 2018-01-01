@@ -2,27 +2,20 @@
 % Please edit documentation in R/api.R
 \name{validate_profile}
 \alias{validate_profile}
-\alias{validate_profile_v1}
-\alias{validate_profile}
 \title{Definition of the profile data format}
 \usage{
-validate_profile_v1(x)
-
 validate_profile(x)
 }
 \arguments{
-\item{x}{Profile data as returned by \code{\link[=read_pprof]{read_pprof()}}.}
+\item{x}{Profile data, e.g., as returned by \code{\link[=read_pprof]{read_pprof()}} or \code{\link[=read_rprof]{read_rprof()}}.}
 }
 \description{
 The data format is stable between major releases.
 In case of major updates, compatibility functions will be provided.
 
-The \code{validate_profile_v1()} function checks a profile data object
-for compatibility with the v1.0.0 format.
-
 The \code{validate_profile()} function checks a profile data object
-for compatibility with the most recent format
-(currently v1.0.0).
+for compatibility with the specification.
+Versioning information embedded in the data is considered.
 }
 \details{
 The profile data is stored in a named list of \link{tibble}s.
@@ -31,11 +24,18 @@ after the required components, but will be ignored.)
 This named list has the following components, subsequently referred to as
 \emph{tables}:
 \itemize{
+\item \code{meta}
 \item \code{sample_types}
 \item \code{samples}
 \item \code{locations}
 \item \code{functions}
 }
+
+The \code{meta} table has two character columns, \code{key} and \code{value}.
+Additional columns with a leading dot in the name are allowed
+after the required columns.
+It is currently restricted to one row with key \code{"version"} and a value
+that is accepted by \code{\link[=package_version]{package_version()}}.
 
 The \code{sample_types} table has two character columns, \code{type} and \code{unit}.
 Additional columns with a leading dot in the name are allowed

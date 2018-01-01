@@ -1,8 +1,9 @@
 #' Read profiler data from an R profiler file
 #'
-#' @param path A file name
+#' @inheritParams read_pprof
 #' @export
-read_rprof <- function(path) {
+read_rprof <- function(path, ..., version = "1.0") {
+  stopifnot(version == get_default_meta()$value)
   rprof_ll <- read_rprof_ll(path)
   ds <- rprof_to_ds(rprof_ll)
   validate_profile(ds)

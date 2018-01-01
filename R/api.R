@@ -4,15 +4,16 @@
 #' The data format is stable between major releases.
 #' In case of major updates, compatibility functions will be provided.
 #'
-#' The `validate_profile_v1()` function checks a profile data object
-#' for compatibility with the v1.0.0 format.
+#' The `validate_profile()` function checks a profile data object
+#' for compatibility with the specification.
+#' Versioning information embedded in the data is considered.
 #'
 #' @section Data model:
 #' \figure{dm.png}
 #' @name validate_profile
-#' @param x Profile data as returned by [read_pprof()].
+#' @param x Profile data, e.g., as returned by [read_pprof()] or [read_rprof()].
 #' @export
-validate_profile_v1 <- function(x) {
+validate_profile <- function(x) {
   #' @details
   #' The profile data is stored in a named list of [tibble]s.
   #' (Exception: Components with names starting with a dot are permitted
@@ -23,11 +24,25 @@ validate_profile_v1 <- function(x) {
 
   #' This named list has the following components, subsequently referred to as
   #' *tables*:
+  #' - `meta`
   #' - `sample_types`
   #' - `samples`
   #' - `locations`
   #' - `functions`
-  stopifnot(undotted(names(x)) == c("sample_types", "samples", "locations", "functions"))
+  stopifnot(undotted(names(x)) == c("meta", "sample_types", "samples", "locations", "functions"))
+
+  #'
+  #' The `meta` table has two character columns, `key` and `value`.
+  #' Additional columns with a leading dot in the name are allowed
+  #' after the required columns.
+  stopifnot(undotted(names(x$meta)) == c("key", "value"))
+  stopifnot(is.character(x$meta$key))
+  stopifnot(is.character(x$meta$value))
+  #' It is currently restricted to one row with key `"version"` and a value
+  #' that is accepted by [package_version()].
+  stopifnot(nrow(x$meta) == 1)
+  stopifnot(x$meta$key == "version")
+  package_version(x$meta$value)
 
   #'
   #' The `sample_types` table has two character columns, `type` and `unit`.
@@ -107,15 +122,13 @@ validate_profile_v1 <- function(x) {
 
 }
 
-#' @export
-#' @description
-#' The `validate_profile()` function checks a profile data object
-#' for compatibility with the most recent format
-validate_profile <- function(x) {
-  #' (currently v1.0.0).
-  validate_profile_v1(x)
-}
-
 undotted <- function(x) {
   x[seq_len(max(grep("^[^.]", x)))]
+}
+
+get_default_meta <- function() {
+  tibble::tibble(
+    key = "version",
+    value = "1.0"
+  )
 }
