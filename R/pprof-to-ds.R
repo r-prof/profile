@@ -4,7 +4,7 @@ msg_to_ds <- function(msg) {
   locations <- get_locations_from_msg(msg)
   functions <- get_functions_from_msg(msg)
 
-  tibble::lst(
+  ret <- tibble::lst(
     meta = get_default_meta(),
     sample_types,
     samples,
@@ -12,6 +12,7 @@ msg_to_ds <- function(msg) {
     functions,
     .msg = as.list(msg)
   )
+  new_profile_data(ret)
 }
 
 get_sample_types_from_msg <- function(msg) {

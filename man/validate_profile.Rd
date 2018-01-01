@@ -18,9 +18,8 @@ for compatibility with the specification.
 Versioning information embedded in the data is considered.
 }
 \details{
-The profile data is stored in a named list of \link{tibble}s.
-(Exception: Components with names starting with a dot are permitted
-after the required components, but will be ignored.)
+The profile data is stored in an object of class \code{"profile_data"},
+which is a named list of \link{tibble}s.
 This named list has the following components, subsequently referred to as
 \emph{tables}:
 \itemize{
@@ -29,6 +28,8 @@ This named list has the following components, subsequently referred to as
 \item \code{samples}
 \item \code{locations}
 \item \code{functions}
+(Components with names starting with a dot are permitted
+after the required components, but will be ignored.)
 }
 
 The \code{meta} table has two character columns, \code{key} and \code{value}.

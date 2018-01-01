@@ -7,3 +7,8 @@ read_rprof(path, ..., version = "1.0")
 validate_profile(x)
 write_pprof(ds, path)
 write_rprof(ds, path)
+
+## Foreign S3 methods
+
+format.profile_data(x, ...)
+print.profile_data(x, ...)

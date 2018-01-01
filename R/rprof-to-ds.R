@@ -7,7 +7,7 @@ rprof_to_ds <- function(rprof) {
   flat_rprof <- add_locations_to_flat_rprof(flat_rprof)
   flat_rprof <- add_samples_to_flat_rprof(flat_rprof)
 
-  tibble::lst(
+  ret <- tibble::lst(
     meta = get_default_meta(),
     sample_types,
     samples = flat_rprof$samples,
@@ -15,6 +15,7 @@ rprof_to_ds <- function(rprof) {
     functions = flat_rprof$functions,
     .rprof = rprof
   )
+  new_profile_data(ret)
 }
 
 get_sample_types_from_rprof <- function(rprof) {

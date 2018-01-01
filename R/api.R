@@ -15,10 +15,10 @@
 #' @export
 validate_profile <- function(x) {
   #' @details
-  #' The profile data is stored in a named list of [tibble]s.
-  #' (Exception: Components with names starting with a dot are permitted
-  #' after the required components, but will be ignored.)
+  #' The profile data is stored in an object of class `"profile_data"`,
+  #' which is a named list of [tibble]s.
   stopifnot(is.list(x))
+  stopifnot(inherits(x, "profile_data"))
   components <- undotted(names(x))
   stopifnot(map_lgl(x[components], tibble::is_tibble))
 
@@ -30,6 +30,8 @@ validate_profile <- function(x) {
   #' - `locations`
   #' - `functions`
   stopifnot(undotted(names(x)) == c("meta", "sample_types", "samples", "locations", "functions"))
+  #' (Components with names starting with a dot are permitted
+  #' after the required components, but will be ignored.)
 
   #'
   #' The `meta` table has two character columns, `key` and `value`.
@@ -131,4 +133,19 @@ get_default_meta <- function() {
     key = "version",
     value = "1.0"
   )
+}
+
+new_profile_data <- function(x) {
+  structure(x, class = "profile_data")
+}
+
+#' @export
+print.profile_data <- function(x, ...) {
+  cat(format(x, ...), sep = "\n")
+  invisible(x)
+}
+
+#' @export
+format.profile_data <- function(x, ...) {
+  paste0("Profile data: ", nrow(x$samples), " samples")
 }
