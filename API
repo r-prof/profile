@@ -2,9 +2,8 @@
 
 ## Exported functions
 
-read_pprof(path)
-read_rprof(path)
+read_pprof(path, ..., version = "1.0")
+read_rprof(path, ..., version = "1.0")
 validate_profile(x)
-validate_profile_v1(x)
 write_pprof(ds, path)
 write_rprof(ds, path)
