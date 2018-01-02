@@ -2,7 +2,7 @@ ds_to_rprof <- function(ds) {
   validate_profile(ds)
 
   . <- ds$locations
-  . <- merge(., ds$functions[c("function_id", "name", "filename")], by = "function_id", sort = FALSE, all.x = TRUE)
+  . <- merge(., ds$functions[c("function_id", "system_name", "filename")], by = "function_id", sort = FALSE, all.x = TRUE)
   . <- .[-1L]
   . <- tibble::as_tibble(.)
   location_files <- .
@@ -25,7 +25,7 @@ ds_to_rprof <- function(ds) {
       stopifnot(.$location_id == loc$location_id)
       funs <- paste0(
         ifelse(is.na(.$file_id), "", paste0(.$file_id, "#", .$line, " ")),
-        '"', .$name, '"'
+        '"', .$system_name, '"'
       )
       paste(c(funs, ""), collapse = " ")
     }

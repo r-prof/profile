@@ -41,7 +41,7 @@ get_flat_rprof_from_rprof <- function(rprof) {
   rx <- '^(?:|([0-9]+)#([0-9]+) )"([^"]*)$'
   samples_flat$file_id <- empty_to_zero(gsub(rx, "\\1", samples_flat$loc))
   samples_flat$line <- empty_to_zero(gsub(rx, "\\2", samples_flat$loc))
-  samples_flat$name <- gsub(rx, "\\3", samples_flat$loc)
+  samples_flat$system_name <- gsub(rx, "\\3", samples_flat$loc)
   samples_flat$loc <- NULL
 
   list(
@@ -56,9 +56,9 @@ empty_to_zero <- function(x) {
 }
 
 add_functions_to_flat_rprof <- function(flat_rprof) {
-  . <- flat_rprof$flat[c("name", "file_id", "line")]
+  . <- flat_rprof$flat[c("system_name", "file_id", "line")]
   . <- .[invoke(order, .), ]
-  . <- .[!duplicated(.[c("name", "file_id")]), ]
+  . <- .[!duplicated(.[c("system_name", "file_id")]), ]
   functions <- .
 
   files <- gsub("^#File [0-9]+: ", "", flat_rprof$rprof$files)
@@ -68,8 +68,8 @@ add_functions_to_flat_rprof <- function(flat_rprof) {
 
   flat_rprof$functions <- tibble::tibble(
     function_id = functions$function_id,
-    name = functions$name,
-    system_name = functions$name,
+    name = rprof_system_name_to_name(functions$system_name),
+    system_name = functions$system_name,
     filename = functions$filename,
     start_line = functions$line,
     .file_id = functions$file_id
@@ -90,8 +90,8 @@ na_to_empty <- function(x) {
 
 add_locations_to_flat_rprof <- function(flat_rprof) {
   . <- merge(
-    flat_rprof$flat[c("name", "file_id", "line")],
-    flat_rprof$functions[c("name", ".file_id", "function_id")],
+    flat_rprof$flat[c("system_name", "file_id", "line")],
+    flat_rprof$functions[c("system_name", ".file_id", "function_id")],
     by = 1:2
   )
   . <- .[-1:-2]
@@ -108,13 +108,13 @@ add_locations_to_flat_rprof <- function(flat_rprof) {
 
 add_samples_to_flat_rprof <- function(flat_rprof) {
   . <- merge(
-    flat_rprof$functions[c("function_id", "name", ".file_id")],
+    flat_rprof$functions[c("function_id", "system_name", ".file_id")],
     flat_rprof$locations[c("function_id", "location_id", "line")],
     by = 1L
   )
   . <- merge(
-    flat_rprof$flat[c("file_id", "line", "name", "sample_id", "sample_seq")],
-    .[c(".file_id", "line", "name", "location_id")],
+    flat_rprof$flat[c("file_id", "line", "system_name", "sample_id", "sample_seq")],
+    .[c(".file_id", "line", "system_name", "location_id")],
     by = 1:3
   )
   . <- .[-1:-3]
@@ -135,4 +135,11 @@ add_samples_to_flat_rprof <- function(flat_rprof) {
   flat_rprof$samples <- .
 
   flat_rprof
+}
+
+rprof_system_name_to_name <- function(x) {
+  . <- x
+  . <- gsub(".", "_", ., fixed = TRUE)
+  . <- gsub("<GC>", "gc", ., fixed = TRUE)
+  .
 }
