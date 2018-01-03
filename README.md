@@ -5,7 +5,7 @@ profile
 
 [![Travis build status](https://travis-ci.org/r-prof/profile.svg?branch=master)](https://travis-ci.org/r-prof/profile) [![Coverage status](https://codecov.io/gh/r-prof/profile/branch/master/graph/badge.svg)](https://codecov.io/github/r-prof/profile?branch=master) [![CRAN status](http://www.r-pkg.org/badges/version/profile)](https://cran.r-project.org/package=profile)
 
-The goal of profile is to read and write files that contain run time profiling data. Currently, profile supports:
+The goal of profile is to read and write files that contain run time profiling data. Currently, *profile* supports:
 
 -   Files created by [`Rprof()`](https://www.rdocumentation.org/packages/utils/versions/3.4.3/topics/Rprof)
 -   `.proto` files written by [`pprof -proto`](https://github.com/google/pprof), these can also be read by `pprof`
@@ -36,10 +36,10 @@ Rprof(NULL)
 
 library(profile)
 ds <- read_rprof(rprof_path)
+ds
+#> Profile data: 33 samples
 names(ds)
 #> [1] "meta"         "sample_types" "samples"      "locations"   
 #> [5] "functions"    ".rprof"
-nrow(ds$samples)
-#> [1] 32
 write_pprof(ds, file.path(tempdir(), "1.pb.gz"))
 ```
