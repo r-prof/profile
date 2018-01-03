@@ -1,7 +1,7 @@
 Package: profile
 Title: Read, Manipulate, and Write Profiler Data
-Version: 0.0-0
-Date: 2017-12-14
+Version: 1.0
+Date: 2018-01-03
 Authors@R: 
     c(
       person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org"),
