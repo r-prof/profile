@@ -53,7 +53,7 @@ get_flat_rprof_from_rprof <- function(rprof) {
   incomplete_sample <- !valid_sample | is.na(samples_flat$line) | samples_flat$system_name == ""
   if (any(incomplete_sample & !last_sample)) {
     warning("Removing unexpected incomplete sampling information.", call. = FALSE)
-  } else if (any(incomplete_sample)) {
+  } else if (any(incomplete_sample[!last_sample])) {
     warning(
       "Incomplete sampling information, increase bufsize in `Rprof()` or `start_profiler()` call",
       call. = FALSE
