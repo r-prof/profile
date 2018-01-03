@@ -5,8 +5,8 @@
 read_pprof(path, ..., version = "1.0")
 read_rprof(path, ..., version = "1.0")
 validate_profile(x)
-write_pprof(ds, path)
-write_rprof(ds, path)
+write_pprof(x, path)
+write_rprof(x, path)
 
 ## Foreign S3 methods
 

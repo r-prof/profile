@@ -12,9 +12,9 @@ read_rprof(path, ..., version = "1.0")
 
 read_pprof(path, ..., version = "1.0")
 
-write_rprof(ds, path)
+write_rprof(x, path)
 
-write_pprof(ds, path)
+write_pprof(x, path)
 }
 \arguments{
 \item{path}{File name}
@@ -25,7 +25,7 @@ write_pprof(ds, path)
 Pass an explicit value to this argument if your code depends on the data
 format.}
 
-\item{ds}{Profiler data, see \code{\link[=validate_profile]{validate_profile()}}}
+\item{x}{Profiler data, see \code{\link[=validate_profile]{validate_profile()}}}
 }
 \value{
 Valid profile data (readers), input data (writers).
