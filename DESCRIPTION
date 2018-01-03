@@ -2,7 +2,11 @@ Package: profile
 Title: Read, Manipulate, and Write Profiler Data
 Version: 0.0-0
 Date: 2017-12-14
-Authors@R: person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org")
+Authors@R: 
+    c(
+      person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org"),
+      person("R Consortium", role = "fnd")
+    )
 Description: Defines a data structure for profiler data, and methods to read and
     write from the 'Rprof' and 'pprof' proto file formats.
 Imports:

@@ -26,4 +26,9 @@ Useful links:
 \author{
 \strong{Maintainer}: Kirill Müller \email{krlmlr+r@mailbox.org}
 
+Other contributors:
+\itemize{
+  \item R Consortium [funder]
+}
+
 }
