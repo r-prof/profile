@@ -2,7 +2,7 @@ context("rprof-read")
 
 test_that("read incomplete files", {
   expect_warning(
-    ds <- read_rprof("rprof/incomplete.out"),
+    ds <- read_inst_rprof("rprof/incomplete.out"),
     "Incomplete sampling information, increase bufsize in `Rprof()` or `start_profiler()` call",
     fixed = TRUE
   )

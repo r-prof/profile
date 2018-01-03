@@ -13,6 +13,8 @@
 #'   Pass an explicit value to this argument if your code depends on the data
 #'   format.
 #' @export
+#' @examples
+#'
 read_rprof <- function(path, ..., version = "1.0") {
   stopifnot(version == get_default_meta()$value)
   rprof_ll <- read_rprof_ll(path)

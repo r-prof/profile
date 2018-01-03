@@ -1,7 +1,7 @@
 context("rprof-write")
 
 test_that("roundtrip", {
-  ds <- read_rprof("rprof/1.out")
+  ds <- read_inst_rprof("rprof/1.out")
   # Validating on write
 
   ds <- rprof_to_ds(ds_to_rprof(ds))

@@ -1,7 +1,7 @@
 context("rprof-from-ds")
 
 test_that("roundtrip works", {
-  ds <- read_rprof("rprof/1.out")
+  ds <- read_inst_rprof("rprof/1.out")
   # Validating on convert
 
   ds1 <- rprof_to_ds(ds_to_rprof(ds))

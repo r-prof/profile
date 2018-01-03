@@ -3,7 +3,7 @@ library(datamodelr)
 library(rlang)
 devtools::load_all(".")
 
-ds <- read_pprof("tests/testthat/proto/1.out.prof.pb.gz")
+ds <- read_inst_pprof("proto/1.out.prof.pb.gz")
 
 dm <- rlang::invoke(dm_from_data_frames, keep(ds, tibble::is_tibble))
 dm_r <- dm_add_references(
