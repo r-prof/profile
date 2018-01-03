@@ -1,9 +1,4 @@
-#' Write profiler data to an R profiler file
-#'
-#' Use the profvis or proftools R packages to further analyze files created by
-#' this function.
-#'
-#' @inheritParams write_pprof
+#' @rdname read_rprof
 #' @export
 write_rprof <- function(ds, path) {
   rprof <- ds_to_rprof(ds)

@@ -24,3 +24,17 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate", "pkgapi::api_roclet"))
 RoxygenNote: 6.0.1
+Collate: 
+    'api.R'
+    'compat-purrr.R'
+    'pprof-from-ds.R'
+    'rprof-read.R'
+    'pprof-read.R'
+    'pprof-to-ds.R'
+    'rprof-write.R'
+    'pprof-write.R'
+    'profile-package.R'
+    'proto.R'
+    'rprof-from-ds.R'
+    'rprof-to-ds.R'
+    'utils.R'

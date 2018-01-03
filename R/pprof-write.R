@@ -1,11 +1,12 @@
-#' Write profiler data to a proto file
-#'
-#' Use the [`pprof` program](https://github.com/google/pprof) to read and
-#' analyze the file created by this function.
+#' @details
+#' Use the [`pprof` tool](https://github.com/google/pprof) in conjunction with
+#' the `_pprof()` functions. The tool is available in the \pkg{pprof} R package,
+#' or (in newer versions) via `go get github.com/google/pprof`.
 #'
 #' @param ds Profiler data, see [validate_profile()]
-#' @param path Target file name
 #' @export
+#' @rdname read_rprof
+#' @include rprof-write.R
 write_pprof <- function(ds, path) {
   msg <- ds_to_msg(ds)
   write_msg(msg, path)
