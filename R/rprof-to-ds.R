@@ -26,7 +26,7 @@ get_sample_types_from_rprof <- function(rprof) {
 }
 
 get_flat_rprof_from_rprof <- function(rprof) {
-  traces_split <- strsplit(gsub('$', "", rprof$traces), '" ', fixed = TRUE)
+  traces_split <- strsplit(gsub('$', '" ', rprof$traces), '" ', fixed = TRUE)
   samples <- tibble::tibble(
     sample_id = seq_along(traces_split),
     location = map(traces_split, tibble::enframe, name = "sample_seq", value = "loc")
@@ -39,10 +39,29 @@ get_flat_rprof_from_rprof <- function(rprof) {
   ))
 
   rx <- '^(?:|([0-9]+)#([0-9]+) )"([^"]*)$'
-  samples_flat$file_id <- empty_to_zero(gsub(rx, "\\1", samples_flat$loc))
-  samples_flat$line <- empty_to_zero(gsub(rx, "\\2", samples_flat$loc))
-  samples_flat$system_name <- gsub(rx, "\\3", samples_flat$loc)
+  valid_sample <- grepl(rx, samples_flat$loc)
+
+  samples_flat$file_id <- NA_integer_
+  samples_flat$line <- NA_integer_
+  samples_flat$system_name <- NA_character_
+  samples_flat$file_id[valid_sample] <- empty_to_zero(gsub(rx, "\\1", samples_flat$loc[valid_sample]))
+  samples_flat$line[valid_sample] <- empty_to_zero(gsub(rx, "\\2", samples_flat$loc[valid_sample]))
+  samples_flat$system_name[valid_sample] <- gsub(rx, "\\3", samples_flat$loc[valid_sample])
+
+  # Treat incomplete output
+  last_sample <- c(diff(samples_flat$sample_id) > 0, TRUE)
+  incomplete_sample <- !valid_sample | is.na(samples_flat$line) | samples_flat$system_name == ""
+  if (any(incomplete_sample & !last_sample)) {
+    warning("Removing unexpected incomplete sampling information.", call. = FALSE)
+  } else if (any(incomplete_sample)) {
+    warning(
+      "Incomplete sampling information, increase bufsize in `Rprof()` or `start_profiler()` call",
+      call. = FALSE
+    )
+  }
+
   samples_flat$loc <- NULL
+  samples_flat <- samples_flat[!last_sample & !incomplete_sample, ]
 
   list(
     flat = samples_flat,
