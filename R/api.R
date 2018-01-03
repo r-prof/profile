@@ -13,6 +13,12 @@
 #' @name validate_profile
 #' @param x Profile data, e.g., as returned by [read_pprof()] or [read_rprof()].
 #' @export
+#' @examples
+#' rprof_file <- system.file("samples/rprof/1.out", package = "profile")
+#' ds <- read_rprof(rprof_file)
+#' validate_profile(ds)
+#' ds$samples <- NULL
+#' try(validate_profile(ds))
 validate_profile <- function(x) {
   #' @details
   #' The profile data is stored in an object of class `"profile_data"`,

@@ -84,3 +84,10 @@ source file, zero if unknown. All values must be nonnegative.
 \figure{dm.png}
 }
 
+\examples{
+rprof_file <- system.file("samples/rprof/1.out", package = "profile")
+ds <- read_rprof(rprof_file)
+validate_profile(ds)
+ds$samples <- NULL
+try(validate_profile(ds))
+}
