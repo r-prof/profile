@@ -10,6 +10,7 @@
 write_pprof <- function(ds, path) {
   msg <- ds_to_msg(ds)
   write_msg(msg, path)
+  invisible(ds)
 }
 
 write_msg <- function(msg, path) {

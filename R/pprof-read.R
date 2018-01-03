@@ -8,6 +8,9 @@
 #' Use the \pkg{proftools}, \pkg{profvis}, or \pkg{prof.tree} R packages to
 #' further analyze files created by the `write_rprof()` function.
 #'
+#' @return
+#' Valid profile data (readers), input data (writers).
+#'
 #' @export
 #' @rdname read_rprof
 #' @include rprof-read.R
