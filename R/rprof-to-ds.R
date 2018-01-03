@@ -26,7 +26,8 @@ get_sample_types_from_rprof <- function(rprof) {
 }
 
 get_flat_rprof_from_rprof <- function(rprof) {
-  traces_split <- strsplit(gsub('$', '" ', rprof$traces), '" ', fixed = TRUE)
+  # Add a sentinel, will be removed later
+  traces_split <- strsplit(paste0(rprof$traces, '" '), '" ', fixed = TRUE)
   samples <- tibble::tibble(
     sample_id = seq_along(traces_split),
     location = map(traces_split, tibble::enframe, name = "sample_seq", value = "loc")
@@ -53,7 +54,7 @@ get_flat_rprof_from_rprof <- function(rprof) {
   incomplete_sample <- !valid_sample | is.na(samples_flat$line) | samples_flat$system_name == ""
   if (any(incomplete_sample & !last_sample)) {
     warning("Removing unexpected incomplete sampling information.", call. = FALSE)
-  } else if (any(incomplete_sample[!last_sample])) {
+  } else if (any(samples_flat$loc[last_sample] != "")) {
     warning(
       "Incomplete sampling information, increase bufsize in `Rprof()` or `start_profiler()` call",
       call. = FALSE
