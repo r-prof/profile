@@ -15,7 +15,7 @@ It supports reading and writing \link{Rprof} \code{.out} and
 Useful links:
 \itemize{
   \item \url{https://github.com/r-prof/profile}
-  \item \url{http://r-prof.github.io/profile}
+  \item \url{https://r-prof.github.io/profile}
   \item Report bugs at \url{https://github.com/r-prof/profile/issues}
 }
 
