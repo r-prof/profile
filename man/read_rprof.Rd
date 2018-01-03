@@ -27,6 +27,9 @@ format.}
 
 \item{ds}{Profiler data, see \code{\link[=validate_profile]{validate_profile()}}}
 }
+\value{
+Valid profile data (readers), input data (writers).
+}
 \description{
 These functions read profile data from files, or store profile data to files.
 Readers call \code{\link[=validate_profile]{validate_profile()}} on input, writers on output.
@@ -44,4 +47,11 @@ further analyze files created by the \code{write_rprof()} function.
 Use the \href{https://github.com/google/pprof}{pprof tool} in conjunction with
 the \code{_pprof()} functions. The tool is available in the \pkg{pprof} R package,
 or (in newer versions) via \code{go get github.com/google/pprof}.
+}
+\examples{
+rprof_file <- system.file("samples/rprof/1.out", package = "profile")
+ds <- read_rprof(rprof_file)
+ds
+pprof_file <- tempfile("profile", fileext = ".pb.gz")
+write_pprof(ds, pprof_file)
 }
