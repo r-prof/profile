@@ -1,5 +1,9 @@
-profile 1.0 (2018-01-03)
-========================
+# profile 1.0.0.9000 (2018-05-24)
+
+- Internal changes only.
+
+
+# profile 1.0 (2018-01-03)
 
 Initial release. Exported functions:
 
