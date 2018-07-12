@@ -1,7 +1,7 @@
 Package: profile
 Title: Read, Manipulate, and Write Profiler Data
-Version: 1.0.1
-Date: 2018-05-24
+Version: 1.0.2
+Date: 2018-07-12
 Authors@R: 
     c(
       person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org"),
@@ -23,7 +23,7 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate", "pkgapi::api_roclet"))
-RoxygenNote: 6.0.1
+RoxygenNote: 6.0.1.9000
 Collate: 
     'api.R'
     'compat-purrr.R'
