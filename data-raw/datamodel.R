@@ -1,4 +1,4 @@
-# remotes::install_packages("bergant/datamodelr")
+# remotes::install_github("bergant/datamodelr")
 library(datamodelr)
 library(rlang)
 devtools::load_all(".")
