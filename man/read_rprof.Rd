@@ -52,6 +52,8 @@ or (in newer versions) via \code{go get github.com/google/pprof}.
 rprof_file <- system.file("samples/rprof/1.out", package = "profile")
 ds <- read_rprof(rprof_file)
 ds
-pprof_file <- tempfile("profile", fileext = ".pb.gz")
-write_pprof(ds, pprof_file)
+if (requireNamespace("RProtoBuf", quietly = TRUE)) {
+  pprof_file <- tempfile("profile", fileext = ".pb.gz")
+  write_pprof(ds, pprof_file)
+}
 }

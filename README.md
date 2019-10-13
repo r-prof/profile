@@ -3,7 +3,7 @@
 profile
 =======
 
-[![Travis build status](https://travis-ci.org/r-prof/profile.svg?branch=master)](https://travis-ci.org/r-prof/profile) [![Coverage status](https://codecov.io/gh/r-prof/profile/branch/master/graph/badge.svg)](https://codecov.io/github/r-prof/profile?branch=master) [![CRAN status](http://www.r-pkg.org/badges/version/profile)](https://cran.r-project.org/package=profile)
+[![Travis build status](https://travis-ci.org/r-prof/profile.svg?branch=master)](https://travis-ci.org/r-prof/profile) [![Coverage status](https://codecov.io/gh/r-prof/profile/branch/master/graph/badge.svg)](https://codecov.io/github/r-prof/profile?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/profile)](https://cran.r-project.org/package=profile)
 
 The goal of profile is to read and write files that contain run time profiling data. Currently, *profile* supports:
 
