@@ -1,9 +1,8 @@
-# profile 1.0.0.9000 (2018-05-24)
+# profile 1.0.1
 
-- Internal changes only.
+- `?read_pprof` uses example conditional on availability of RProtoBuf.
 
-
-# profile 1.0 (2018-01-03)
+# profile 1.0
 
 Initial release. Exported functions:
 
