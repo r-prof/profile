@@ -1,3 +1,8 @@
+# profile 1.0.1.9000
+
+- Same as previous version.
+
+
 # profile 1.0.1
 
 - `?read_pprof` uses example conditional on availability of RProtoBuf.
