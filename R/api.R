@@ -37,7 +37,10 @@ validate_profile <- function(x) {
   #' - `samples`
   #' - `locations`
   #' - `functions`
-  stopifnot(undotted(names(x)) == c("meta", "sample_types", "samples", "locations", "functions"))
+  stopifnot(identical(
+    undotted(names(x)),
+    c("meta", "sample_types", "samples", "locations", "functions")
+  ))
   #' (Components with names starting with a dot are permitted
   #' after the required components, but will be ignored.)
 
