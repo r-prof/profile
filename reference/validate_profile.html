@@ -44,7 +44,10 @@
 In case of major updates, compatibility functions will be provided.
 The validate_profile() function checks a profile data object
 for compatibility with the specification.
-Versioning information embedded in the data is considered." />
+Versioning information embedded in the data is considered.
+The dm_from_profile() function converts a profile to a dm object.
+The dm package must be installed.
+See dm::dm() for more information." />
 
 
 
@@ -126,9 +129,14 @@ In case of major updates, compatibility functions will be provided.</p>
 <p>The <code>validate_profile()</code> function checks a profile data object
 for compatibility with the specification.
 Versioning information embedded in the data is considered.</p>
+<p>The <code>dm_from_profile()</code> function converts a profile to a dm object.
+The <span class="pkg">dm</span> package must be installed.
+See <code><a href='https://rdrr.io/pkg/dm/man/dm.html'>dm::dm()</a></code> for more information.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>validate_profile</span>(<span class='no'>x</span>)</pre>
+    <pre class="usage"><span class='fu'>validate_profile</span>(<span class='no'>x</span>)
+
+<span class='fu'>dm_from_profile</span>(<span class='no'>x</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -206,9 +214,22 @@ source file, zero if unknown. All values must be nonnegative.</p>
     <pre class="examples"><div class='input'><span class='no'>rprof_file</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/system.file.html'>system.file</a></span>(<span class='st'>"samples/rprof/1.out"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"profile"</span>)
 <span class='no'>ds</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='read_rprof.html'>read_rprof</a></span>(<span class='no'>rprof_file</span>)
 <span class='fu'>validate_profile</span>(<span class='no'>ds</span>)
-<span class='no'>ds</span>$<span class='no'>samples</span> <span class='kw'>&lt;-</span> <span class='kw'>NULL</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>validate_profile</span>(<span class='no'>ds</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: longer object length is not a multiple of shorter object length</span></div><div class='output co'>#&gt; Error in validate_profile(ds) : 
-#&gt;   undotted(names(x)) == c("meta", "sample_types", "samples", "locations",  .... are not all TRUE</div></pre>
+
+<span class='no'>bad_ds</span> <span class='kw'>&lt;-</span> <span class='no'>ds</span>
+<span class='no'>bad_ds</span>$<span class='no'>samples</span> <span class='kw'>&lt;-</span> <span class='kw'>NULL</span>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>validate_profile</span>(<span class='no'>bad_ds</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: longer object length is not a multiple of shorter object length</span></div><div class='output co'>#&gt; Error in validate_profile(bad_ds) : 
+#&gt;   undotted(names(x)) == c("meta", "sample_types", "samples", "locations",  .... are not all TRUE</div><div class='input'>
+<span class='kw'>if</span> (<span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_installed.html'>is_installed</a></span>(<span class='st'>"dm"</span>)) {
+  <span class='no'>dm</span> <span class='kw'>&lt;-</span> <span class='fu'>dm_from_profile</span>(<span class='no'>ds</span>)
+  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>dm</span>)
+  <span class='kw pkg'>dm</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/dm/man/dm_draw.html'>dm_draw</a></span>(<span class='no'>dm</span>)
+}</div><div class='output co'>#&gt; ── Table source ────────────────────────────────────────────────────────────────
+#&gt; src:  &lt;environment: R_GlobalEnv&gt;
+#&gt; ── Metadata ────────────────────────────────────────────────────────────────────
+#&gt; Tables: `samples`, `locations`, `functions`, `samples_locations`
+#&gt; Columns: 13
+#&gt; Primary keys: 3
+#&gt; Foreign keys: 3</div><div class='output co'>#&gt; <span class='error'>Error in loadNamespace(name): there is no package called ‘DiagrammeRsvg’</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
