@@ -161,8 +161,9 @@ format.profile_data <- function(x, ...) {
 #' dm_from_profile
 #'
 #' @description
-#' The `dm_from_profile()` function converts a profile to a [dm] object.
+#' The `dm_from_profile()` function converts a profile to a dm object.
 #' The \pkg{dm} package must be installed.
+#' See [dm::dm()] for more information.
 #'
 #' @rdname validate_profile
 #' @export

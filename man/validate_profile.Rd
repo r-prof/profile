@@ -20,8 +20,9 @@ The \code{validate_profile()} function checks a profile data object
 for compatibility with the specification.
 Versioning information embedded in the data is considered.
 
-The \code{dm_from_profile()} function converts a profile to a \link{dm} object.
+The \code{dm_from_profile()} function converts a profile to a dm object.
 The \pkg{dm} package must be installed.
+See \code{\link[dm:dm]{dm::dm()}} for more information.
 }
 \details{
 The profile data is stored in an object of class \code{"profile_data"},
