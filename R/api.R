@@ -197,3 +197,7 @@ dm_from_profile <- function(x) {
     dm::dm_add_fk(samples_locations, location_id, locations) %>%
     dm::dm_add_fk(locations, function_id, functions)
 }
+
+utils::globalVariables("function_id")
+utils::globalVariables("location_id")
+utils::globalVariables("sample_id")
