@@ -19,6 +19,7 @@ Imports:
     withr
 Suggests: 
     dm,
+    DiagrammeR,
     RProtoBuf,
     testthat
 Encoding: UTF-8
