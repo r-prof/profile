@@ -10,3 +10,4 @@
 ^API$
 ^cran-comments\.md$
 ^\.github
+^CRAN-RELEASE$
