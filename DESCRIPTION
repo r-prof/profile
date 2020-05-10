@@ -20,6 +20,7 @@ Imports:
 Suggests: 
     dm,
     DiagrammeR,
+    DiagrammeRsvg,
     RProtoBuf,
     testthat
 Encoding: UTF-8
