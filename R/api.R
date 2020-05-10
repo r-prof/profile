@@ -17,8 +17,10 @@
 #' rprof_file <- system.file("samples/rprof/1.out", package = "profile")
 #' ds <- read_rprof(rprof_file)
 #' validate_profile(ds)
-#' ds$samples <- NULL
-#' try(validate_profile(ds))
+#'
+#' bad_ds <- ds
+#' bad_ds$samples <- NULL
+#' try(validate_profile(bad_ds))
 validate_profile <- function(x) {
   #' @details
   #' The profile data is stored in an object of class `"profile_data"`,
@@ -154,4 +156,42 @@ print.profile_data <- function(x, ...) {
 #' @export
 format.profile_data <- function(x, ...) {
   paste0("Profile data: ", nrow(x$samples), " samples")
+}
+
+#' dm_from_profile
+#'
+#' @description
+#' The `dm_from_profile()` function converts a profile to a [dm] object.
+#' The \pkg{dm} package must be installed.
+#'
+#' @rdname validate_profile
+#' @export
+#' @examples
+#'
+#' if (rlang::is_installed("dm")) {
+#'   dm <- dm_from_profile(ds)
+#'   print(dm)
+#'   dm::dm_draw(dm)
+#' }
+dm_from_profile <- function(x) {
+  stopifnot(inherits(x, "profile_data"))
+  stopifnot(rlang::is_installed("dm"))
+
+  samples <- x$samples
+  locations <- x$locations
+  functions <- x$functions
+  samples$sample_id <- seq_len(nrow(samples))
+  samples_locations <- tibble::tibble(
+    sample_id = rep(samples$sample_id, vapply(samples$locations, nrow, integer(1))),
+    location_id = tibble::as_tibble(do.call(rbind, samples$locations))
+  )
+  samples$locations <- NULL
+
+  dm::dm(samples, locations, functions, samples_locations) %>%
+    dm::dm_add_pk(functions, function_id) %>%
+    dm::dm_add_pk(locations, location_id) %>%
+    dm::dm_add_pk(samples, sample_id) %>%
+    dm::dm_add_fk(samples_locations, sample_id, samples) %>%
+    dm::dm_add_fk(samples_locations, location_id, locations) %>%
+    dm::dm_add_fk(locations, function_id, functions)
 }

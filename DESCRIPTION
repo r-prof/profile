@@ -18,6 +18,7 @@ Imports:
     tibble,
     withr
 Suggests: 
+    dm,
     RProtoBuf,
     testthat
 Encoding: UTF-8

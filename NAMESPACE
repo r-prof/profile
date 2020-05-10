@@ -2,6 +2,7 @@
 
 S3method(format,profile_data)
 S3method(print,profile_data)
+export(dm_from_profile)
 export(read_pprof)
 export(read_rprof)
 export(validate_profile)
