@@ -187,6 +187,7 @@ dm_from_profile <- function(x) {
   )
   samples$locations <- NULL
 
+  #' @importFrom tibble %>%
   dm::dm(samples, locations, functions, samples_locations) %>%
     dm::dm_add_pk(functions, function_id) %>%
     dm::dm_add_pk(locations, location_id) %>%
