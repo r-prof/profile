@@ -1,3 +1,8 @@
+# profile 1.0.1.9002
+
+- New `dm_from_profile()` (#10).
+
+
 # profile 1.0.1.9001
 
 - Same as previous version.
