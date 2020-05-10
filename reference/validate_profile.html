@@ -217,8 +217,8 @@ source file, zero if unknown. All values must be nonnegative.</p>
 
 <span class='no'>bad_ds</span> <span class='kw'>&lt;-</span> <span class='no'>ds</span>
 <span class='no'>bad_ds</span>$<span class='no'>samples</span> <span class='kw'>&lt;-</span> <span class='kw'>NULL</span>
-<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>validate_profile</span>(<span class='no'>bad_ds</span>))</div><div class='output co'>#&gt; <span class='warning'>Warning: longer object length is not a multiple of shorter object length</span></div><div class='output co'>#&gt; Error in validate_profile(bad_ds) : 
-#&gt;   undotted(names(x)) == c("meta", "sample_types", "samples", "locations",  .... are not all TRUE</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/try.html'>try</a></span>(<span class='fu'>validate_profile</span>(<span class='no'>bad_ds</span>))</div><div class='output co'>#&gt; Error in validate_profile(bad_ds) : 
+#&gt;   identical(undotted(names(x)), c("meta", "sample_types", "samples",  .... is not TRUE</div><div class='input'>
 <span class='kw'>if</span> (<span class='kw pkg'>rlang</span><span class='kw ns'>::</span><span class='fu'><a href='https://rlang.r-lib.org/reference/is_installed.html'>is_installed</a></span>(<span class='st'>"dm"</span>)) {
   <span class='no'>dm</span> <span class='kw'>&lt;-</span> <span class='fu'>dm_from_profile</span>(<span class='no'>ds</span>)
   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>(<span class='no'>dm</span>)
