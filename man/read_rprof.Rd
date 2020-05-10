@@ -44,9 +44,9 @@ writes a Gzip-compressed file that can be processed with \code{pprof}.
 Use the \pkg{proftools}, \pkg{profvis}, or \pkg{prof.tree} R packages to
 further analyze files created by the \code{write_rprof()} function.
 
-Use the \href{https://github.com/google/pprof}{pprof tool} in conjunction with
-the \code{_pprof()} functions. The tool is available in the \pkg{pprof} R package,
-or (in newer versions) via \code{go get github.com/google/pprof}.
+Use the \href{https://github.com/google/pprof}{\code{pprof} tool} in conjunction with
+the \verb{_pprof()} functions. The tool is available in the \pkg{pprof} R package,
+or (in newer versions) via \verb{go get github.com/google/pprof}.
 }
 \examples{
 rprof_file <- system.file("samples/rprof/1.out", package = "profile")
