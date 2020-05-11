@@ -1,21 +1,6 @@
 # profile 1.0.2
 
-- Internal changes only.
-
-
-# profile 1.0.1.9002
-
 - New `dm_from_profile()` (#10).
-
-
-# profile 1.0.1.9001
-
-- Same as previous version.
-
-
-# profile 1.0.1.9000
-
-- Same as previous version.
 
 
 # profile 1.0.1
