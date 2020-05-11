@@ -8,7 +8,7 @@ profile 1.0.2
 
 - [x] Checked locally, R 3.6.3
 - [x] Checked on CI system, R 4.0.0
-- [ ] Checked on win-builder, R devel
+- [x] Checked on win-builder, R devel
 
 ## CRAN failures
 
