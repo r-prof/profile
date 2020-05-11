@@ -7,12 +7,8 @@ profile 1.0.2
 ## R CMD check results
 
 - [x] Checked locally, R 3.6.3
-- [ ] Checked on CI system, R 4.0.0
+- [x] Checked on CI system, R 4.0.0
 - [ ] Checked on win-builder, R devel
-
-OK
-
-- [ ] Explain R CMD check failures or remove this line.
 
 ## CRAN failures
 
