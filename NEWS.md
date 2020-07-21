@@ -1,3 +1,8 @@
+# profile 1.0.2.9001
+
+- Require tibble 3.0.0 (#11).
+
+
 # profile 1.0.2.9000
 
 - Same as previous version.
