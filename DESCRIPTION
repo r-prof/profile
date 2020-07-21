@@ -15,7 +15,7 @@ BugReports: https://github.com/r-prof/profile/issues
 Imports: 
     methods,
     rlang,
-    tibble,
+    tibble (>= 3.0.0),
     withr
 Suggests: 
     dm,
