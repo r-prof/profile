@@ -10,7 +10,7 @@ Authors@R:
 Description: Defines a data structure for profiler data, and methods to read and
     write from the 'Rprof' and 'pprof' file formats.
 License: MIT + file LICENSE
-URL: https://github.com/r-prof/profile, https://r-prof.github.io/profile
+URL: https://r-prof.github.io/profile/, https://github.com/r-prof/profile
 BugReports: https://github.com/r-prof/profile/issues
 Imports: 
     methods,

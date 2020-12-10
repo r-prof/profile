@@ -55,3 +55,9 @@ ds
 names(ds)
 write_pprof(ds, file.path(tempdir(), "1.pb.gz"))
 ```
+
+---
+
+## Code of Conduct
+
+Please note that the profile project is released with a [Contributor Code of Conduct](https://r-prof.github.io/profile/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

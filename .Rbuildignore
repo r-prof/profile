@@ -9,3 +9,4 @@
 ^\.github
 ^CRAN-RELEASE$
 ^codecov\.yml$
+^CODE_OF_CONDUCT\.md$
