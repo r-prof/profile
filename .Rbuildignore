@@ -1,8 +1,5 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
-^\.travis\.yml$
-^appveyor\.yml$
-^tic\.R$
 ^data-raw$
 ^docs$
 ^_pkgdown\.yml$
@@ -11,3 +8,4 @@
 ^cran-comments\.md$
 ^\.github
 ^CRAN-RELEASE$
+^codecov\.yml$
