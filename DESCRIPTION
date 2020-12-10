@@ -18,6 +18,7 @@ Imports:
     tibble (>= 3.0.0),
     withr
 Suggests: 
+    covr,
     dm,
     DiagrammeR,
     DiagrammeRsvg,
