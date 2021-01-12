@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://r-prof.github.io/profile/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/reference/profile-package.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/reference/read_rprof.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/reference/validate_profile.html</loc>
+  </url>
+</urlset>
