@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://r-prof.github.io/profile/404.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/authors.html</loc>
+  </url>
+  <url>
     <loc>https://r-prof.github.io/profile/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://r-prof.github.io/profile/reference/index.html</loc>
   </url>
   <url>
     <loc>https://r-prof.github.io/profile/reference/profile-package.html</loc>
