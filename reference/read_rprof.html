@@ -102,6 +102,9 @@ or (in newer versions) via <code>go get github.com/google/pprof</code>.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">rprof_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"samples/rprof/1.out"</span>, package <span class="op">=</span> <span class="st">"profile"</span><span class="op">)</span></span>
 <span class="r-in"><span class="va">ds</span> <span class="op">&lt;-</span> <span class="fu">read_rprof</span><span class="op">(</span><span class="va">rprof_file</span><span class="op">)</span></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`invoke()` is deprecated as of rlang 0.4.0.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `exec()` or `inject()` instead.</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">This warning is displayed once per session.</span></span>
 <span class="r-in"><span class="va">ds</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Profile data: 22 samples</span>
 <span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"RProtoBuf"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
@@ -118,11 +121,11 @@ or (in newer versions) via <code>go get github.com/google/pprof</code>.</p>
 
 
       <footer><div class="copyright">
-  <p></p><p>Developed by <a href="https://krlmlr.info" class="external-link">Kirill Müller</a>, <a href="https://www.r-consortium.org" class="external-link">R Consortium</a>.</p>
+  <p></p><p>Developed by <a href="https://krlmlr.info" class="external-link">Kirill Müller</a>, R Consortium.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.9000.</p>
 </div>
 
       </footer></div>
