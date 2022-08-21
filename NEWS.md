@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# profile 1.0.2.9003
+
+## Chore
+
+- Adapt to rlang >= 1.0.0.
+
+
 # profile 1.0.2.9002
 
 - Switch to GitHub Actions (#12).
