@@ -16,6 +16,7 @@ Imports:
     methods,
     rlang,
     tibble (>= 3.0.0),
+    vctrs,
     withr
 Suggests: 
     covr,

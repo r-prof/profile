@@ -77,7 +77,7 @@ empty_to_zero <- function(x) {
 
 add_functions_to_flat_rprof <- function(flat_rprof) {
   . <- flat_rprof$flat[c("system_name", "file_id", "line")]
-  . <- .[invoke(order, .), ]
+  . <- vctrs::vec_sort(.)
   . <- .[!duplicated(.[c("system_name", "file_id")]), ]
   functions <- .
 
@@ -138,8 +138,8 @@ add_samples_to_flat_rprof <- function(flat_rprof) {
     by = 1:3
   )
   . <- .[-1:-3]
-  . <- .[invoke(order, .[c("sample_id", "sample_seq")]), ]
-  . <- .[c("sample_id", "location_id")]
+  order <- vctrs::vec_order(.[c("sample_id", "sample_seq")])
+  . <- .[order, c("sample_id", "location_id")]
 
   . <- tibble::tibble(
     sample_id = unique(.$sample_id),
