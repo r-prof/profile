@@ -4,7 +4,7 @@ Version: 1.0.2.9002
 Date: 2022-02-22
 Authors@R: 
     c(
-      person("Kirill", "Müller", role = c("aut", "cre"), email = "krlmlr+r@mailbox.org"),
+      person("Kirill", "Müller", role = c("aut", "cre"), email = "kirill@cynkra.com", comment = c(ORCID = "0000-0002-1416-3412")),
       person("R Consortium", role = "fnd")
     )
 Description: Defines a data structure for profiler data, and methods to read and
