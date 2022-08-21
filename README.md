@@ -4,7 +4,7 @@
 
 <!-- badges: start -->
 
-[![rcc](https://github.com/r-prof/profile/workflows/rcc/badge.svg)](https://github.com/r-prof/profile/actions) [![Codecov test coverage](https://codecov.io/gh/r-prof/profile/branch/master/graph/badge.svg)](https://codecov.io/gh/r-prof/profile?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/profile)](https://cran.r-project.org/package=profile)
+[![rcc](https://github.com/r-prof/profile/workflows/rcc/badge.svg)](https://github.com/r-prof/profile/actions) [![Codecov test coverage](https://codecov.io/gh/r-prof/profile/branch/master/graph/badge.svg)](https://app.codecov.io/gh/r-prof/profile?branch=master) [![CRAN status](https://www.r-pkg.org/badges/version/profile)](https://cran.r-project.org/package=profile)
 
 <!-- badges: end -->
 
