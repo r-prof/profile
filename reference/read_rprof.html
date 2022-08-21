@@ -22,7 +22,7 @@ writes a Gzip-compressed file that can be processed with pprof."><!-- mathjax --
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">profile</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.2.9002</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">1.0.3</span>
       </span>
     </div>
 
@@ -63,31 +63,40 @@ writes a Gzip-compressed file that can be processed with <code>pprof</code>.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">read_rprof</span><span class="op">(</span><span class="va">path</span>, <span class="va">...</span>, version <span class="op">=</span> <span class="st">"1.0"</span><span class="op">)</span>
-
-<span class="fu">read_pprof</span><span class="op">(</span><span class="va">path</span>, <span class="va">...</span>, version <span class="op">=</span> <span class="st">"1.0"</span><span class="op">)</span>
-
-<span class="fu">write_rprof</span><span class="op">(</span><span class="va">x</span>, <span class="va">path</span><span class="op">)</span>
-
-<span class="fu">write_pprof</span><span class="op">(</span><span class="va">x</span>, <span class="va">path</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">read_rprof</span><span class="op">(</span><span class="va">path</span>, <span class="va">...</span>, version <span class="op">=</span> <span class="st">"1.0"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">read_pprof</span><span class="op">(</span><span class="va">path</span>, <span class="va">...</span>, version <span class="op">=</span> <span class="st">"1.0"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">write_rprof</span><span class="op">(</span><span class="va">x</span>, <span class="va">path</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">write_pprof</span><span class="op">(</span><span class="va">x</span>, <span class="va">path</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>path</dt>
 <dd><p>File name</p></dd>
+
+
 <dt>...</dt>
 <dd><p>Ignored</p></dd>
+
+
 <dt>version</dt>
 <dd><p>Version of the data, currently only <code>"1.0"</code> is supported.
 Pass an explicit value to this argument if your code depends on the data
 format.</p></dd>
+
+
 <dt>x</dt>
 <dd><p>Profiler data, see <code><a href="validate_profile.html">validate_profile()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>Valid profile data (readers), input data (writers).</p>
+    
+
+<p>Valid profile data (readers), input data (writers).</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -100,17 +109,14 @@ or (in newer versions) via <code>go get github.com/google/pprof</code>.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">rprof_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"samples/rprof/1.out"</span>, package <span class="op">=</span> <span class="st">"profile"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ds</span> <span class="op">&lt;-</span> <span class="fu">read_rprof</span><span class="op">(</span><span class="va">rprof_file</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>`invoke()` is deprecated as of rlang 0.4.0.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> Please use `exec()` or `inject()` instead.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span style="color: #555555;">This warning is displayed once per session.</span></span>
-<span class="r-in"><span class="va">ds</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">rprof_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"samples/rprof/1.out"</span>, package <span class="op">=</span> <span class="st">"profile"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ds</span> <span class="op">&lt;-</span> <span class="fu">read_rprof</span><span class="op">(</span><span class="va">rprof_file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ds</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Profile data: 22 samples</span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"RProtoBuf"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in">  <span class="va">pprof_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="st">"profile"</span>, fileext <span class="op">=</span> <span class="st">".pb.gz"</span><span class="op">)</span></span>
-<span class="r-in">  <span class="fu">write_pprof</span><span class="op">(</span><span class="va">ds</span>, <span class="va">pprof_file</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/ns-load.html" class="external-link">requireNamespace</a></span><span class="op">(</span><span class="st">"RProtoBuf"</span>, quietly <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">pprof_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></span><span class="op">(</span><span class="st">"profile"</span>, fileext <span class="op">=</span> <span class="st">".pb.gz"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="fu">write_pprof</span><span class="op">(</span><span class="va">ds</span>, <span class="va">pprof_file</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -125,7 +131,7 @@ or (in newer versions) via <code>go get github.com/google/pprof</code>.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
