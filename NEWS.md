@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# profile 1.0.3
+
+- Same as previous version.
+
+
 # profile 1.0.2.9003
 
 ## Chore

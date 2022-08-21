@@ -1,6 +1,6 @@
 Package: profile
 Title: Read, Manipulate, and Write Profiler Data
-Version: 1.0.2.9003
+Version: 1.0.3
 Date: 2022-08-21
 Authors@R: 
     c(
