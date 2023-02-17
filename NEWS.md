@@ -1,4 +1,9 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# profile 1.0.3.9002
+
+- Internal changes only.
+
 
 # profile 1.0.3.9001
 
