@@ -187,7 +187,7 @@ dm_from_profile <- function(x) {
   samples$sample_id <- seq_len(nrow(samples))
   samples_locations <- tibble::tibble(
     sample_id = rep(samples$sample_id, vapply(samples$locations, nrow, integer(1))),
-    location_id = tibble::as_tibble(do.call(rbind, samples$locations))
+    tibble::as_tibble(do.call(rbind, samples$locations))
   )
   samples$locations <- NULL
 
