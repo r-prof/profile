@@ -1,5 +1,3 @@
-context("rprof-from-ds")
-
 test_that("roundtrip works", {
   ds <- read_inst_rprof("rprof/1.out")
   # Validating on convert

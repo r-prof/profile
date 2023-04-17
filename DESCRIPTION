@@ -24,7 +24,7 @@ Suggests:
     DiagrammeR,
     DiagrammeRsvg,
     RProtoBuf,
-    testthat
+    testthat (>= 3.0.0)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate", "pkgapi::api_roclet"))
 RoxygenNote: 7.2.3
@@ -42,3 +42,4 @@ Collate:
     'rprof-from-ds.R'
     'rprof-to-ds.R'
     'utils.R'
+Config/testthat/edition: 3

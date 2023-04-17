@@ -1,5 +1,3 @@
-context("pprof-from-ds")
-
 test_that("roundtrip works", {
   skip_if_not_installed("RProtoBuf")
 
