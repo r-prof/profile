@@ -14,14 +14,14 @@ It supports reading and writing \link{Rprof} \code{.out} and
 \seealso{
 Useful links:
 \itemize{
+  \item \url{https://r-prof.github.io/profile/}
   \item \url{https://github.com/r-prof/profile}
-  \item \url{https://r-prof.github.io/profile}
   \item Report bugs at \url{https://github.com/r-prof/profile/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Kirill Müller \email{krlmlr+r@mailbox.org}
+\strong{Maintainer}: Kirill Müller \email{kirill@cynkra.com} (\href{https://orcid.org/0000-0002-1416-3412}{ORCID})
 
 Other contributors:
 \itemize{

@@ -24,29 +24,13 @@
 
 # profile 1.0.3
 
-- Same as previous version.
-
-
-# profile 1.0.2.9003
-
 ## Chore
 
 - Adapt to rlang >= 1.0.0.
 
-
-# profile 1.0.2.9002
-
 - Switch to GitHub Actions (#12).
 
-
-# profile 1.0.2.9001
-
 - Require tibble 3.0.0 (#11).
-
-
-# profile 1.0.2.9000
-
-- Same as previous version.
 
 
 # profile 1.0.2
