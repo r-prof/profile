@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9004
+
+## Chore
+
+- Fix `dm_from_profile()`.
+
+- Use testthat edition 3.
+
+## Uncategorized
+
+- Merged cran-1.0.3 into main.
+
+
 # profile 1.0.3.9003
 
 - Internal changes only.
