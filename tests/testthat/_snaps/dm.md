@@ -2,6 +2,6 @@
 
     Code
       dm::dm_examine_constraints(dm)
-    Message <cliMessage>
+    Message
       i All constraints satisfied.
 
