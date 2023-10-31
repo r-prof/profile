@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9006
+
+- Merge pull request #15 from r-prof/snapshot-main-rcc-smoke-null.
+
+
 # profile 1.0.3.9005
 
 - Internal changes only.
