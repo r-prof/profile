@@ -99,10 +99,13 @@ validate_profile(ds)
 bad_ds <- ds
 bad_ds$samples <- NULL
 try(validate_profile(bad_ds))
+\dontshow{if (rlang::is_installed("dm")) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
-if (rlang::is_installed("dm")) {
-  dm <- dm_from_profile(ds)
-  print(dm)
-  dm::dm_draw(dm)
-}
+dm <- dm_from_profile(ds)
+print(dm)
+\dontshow{\}) # examplesIf}
+\dontshow{if (rlang::is_installed(c("dm", "DiagrammeR"))) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+
+dm::dm_draw(dm)
+\dontshow{\}) # examplesIf}
 }

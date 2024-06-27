@@ -170,13 +170,13 @@ format.profile_data <- function(x, ...) {
 #'
 #' @rdname validate_profile
 #' @export
-#' @examples
+#' @examplesIf rlang::is_installed("dm")
 #'
-#' if (rlang::is_installed("dm")) {
-#'   dm <- dm_from_profile(ds)
-#'   print(dm)
-#'   dm::dm_draw(dm)
-#' }
+#' dm <- dm_from_profile(ds)
+#' print(dm)
+#' @examplesIf rlang::is_installed(c("dm", "DiagrammeR"))
+#'
+#' dm::dm_draw(dm)
 dm_from_profile <- function(x) {
   stopifnot(inherits(x, "profile_data"))
   stopifnot(rlang::is_installed("dm"))

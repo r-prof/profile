@@ -8,5 +8,5 @@ test_that("can load dm", {
     dm::dm_examine_constraints(dm)
   })
 
-  expect_equal(nrow(dm::dm_examine_constraints(dm)), 0)
+  expect_equal(unique(dm::dm_examine_constraints(dm)$is_key), TRUE)
 })
