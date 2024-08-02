@@ -4,7 +4,6 @@
 ^docs$
 ^_pkgdown\.yml$
 ^README\.Rmd$
-^API$
 ^cran-comments\.md$
 ^\.github
 ^CRAN-RELEASE$
