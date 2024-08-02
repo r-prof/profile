@@ -26,7 +26,7 @@ See \code{\link[dm:dm]{dm::dm()}} for more information.
 }
 \details{
 The profile data is stored in an object of class \code{"profile_data"},
-which is a named list of \link{tibble}s.
+which is a named list of \link[tibble:tibble]{tibble::tibble}s.
 This named list has the following components, subsequently referred to as
 \emph{tables}:
 \itemize{
