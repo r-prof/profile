@@ -1,5 +1,64 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9007
+
+## Chore
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-prof/profile/actions/runs/10425484115
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-prof/profile/actions/runs/10224248153
+
+  - Roxygenize.
+
+  - Remove pkgapi dependency.
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-prof/profile/actions/runs/10208528515
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-prof/profile/actions/runs/9728443545
+
+  - Fix test (#17).
+
+  - Add Aviator configuration.
+
+  - Auto-update from GitHub Actions.
+    
+    Run: https://github.com/r-prof/profile/actions/runs/9691617073
+
+## Continuous integration
+
+  - Install local package for pkgdown builds.
+
+  - Improve support for protected branches with fledge.
+
+  - Improve support for protected branches, without fledge.
+
+  - Sync with latest developments.
+
+  - Use v2 instead of master.
+
+  - Inline action.
+
+  - Use dev roxygen2 and decor.
+
+  - Fix on Windows, tweak lock workflow.
+
+  - Avoid checking bashisms on Windows.
+
+  - Better commit message.
+
+  - Bump versions, better default, consume custom matrix.
+
+  - Recent updates.
+
+
 # profile 1.0.3.9006
 
 - Merge pull request #15 from r-prof/snapshot-main-rcc-smoke-null.
