@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9008
+
+## Continuous integration
+
+  - Install via R CMD INSTALL ., not pak (#19).
+    
+      - ci: Install via R CMD INSTALL ., not pak
+    
+      - ci: Bump version of upload-artifact action
+
+
 # profile 1.0.3.9007
 
 ## Chore
