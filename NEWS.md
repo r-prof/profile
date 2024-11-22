@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9012
+
+## Continuous integration
+
+  - Correctly detect branch protection (#23).
+
+
 # profile 1.0.3.9011
 
 ## Continuous integration
