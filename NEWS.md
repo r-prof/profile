@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9013
+
+## Continuous integration
+
+- Need to install R on Ubuntu 24.04 (#26).
+
+- Use Ubuntu 24.04 and styler PR (#24).
+
+
 # profile 1.0.3.9012
 
 ## Continuous integration
