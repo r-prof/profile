@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9014
+
+## Continuous integration
+
+- Use styler from main branch (#27).
+
+
 # profile 1.0.3.9013
 
 ## Continuous integration
