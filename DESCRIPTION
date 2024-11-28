@@ -1,7 +1,7 @@
 Package: profile
 Title: Read, Manipulate, and Write Profiler Data
-Version: 1.0.3.9015
-Date: 2024-11-27
+Version: 1.0.3.9016
+Date: 2024-11-28
 Authors@R: 
     c(
       person("Kirill", "Müller", role = c("aut", "cre"), email = "kirill@cynkra.com", comment = c(ORCID = "0000-0002-1416-3412")),

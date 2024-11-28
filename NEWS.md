@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9016
+
+## Continuous integration
+
+- Ignore errors when removing pkg-config on macOS (#29).
+
+
 # profile 1.0.3.9015
 
 ## Continuous integration
