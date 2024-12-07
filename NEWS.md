@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9017
+
+## Continuous integration
+
+- Use larger retry count for lock-threads workflow (#30).
+
+
 # profile 1.0.3.9016
 
 ## Continuous integration
