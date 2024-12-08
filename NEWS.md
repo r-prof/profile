@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9018
+
+## Continuous integration
+
+- Fetch tags for fledge workflow to avoid unnecessary NEWS entries (#31).
+
+
 # profile 1.0.3.9017
 
 ## Continuous integration
