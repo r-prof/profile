@@ -179,7 +179,7 @@ format.profile_data <- function(x, ...) {
 #' dm::dm_draw(dm)
 dm_from_profile <- function(x) {
   stopifnot(inherits(x, "profile_data"))
-  stopifnot(rlang::is_installed("dm"))
+  check_installed("dm")
 
   samples <- x$samples
   locations <- x$locations
