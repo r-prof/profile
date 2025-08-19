@@ -1,8 +1,5 @@
 provide_proto <- function() {
-  if (!is_installed("RProtoBuf")) {
-    abort("Package RProtoBuf is required to read pprof files.")
-  }
-
+  check_installed("RProtoBuf")
   install_proto_files()
 }
 
