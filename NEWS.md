@@ -1,6 +1,6 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# profile 1.0.3.9020
+# profile 1.0.4
 
 ## Chore
 
@@ -8,9 +8,29 @@
 
   Run: https://github.com/r-prof/profile/actions/runs/17451571354
 
-- Auto-update from GitHub Actions.
-
   Run: https://github.com/r-prof/profile/actions/runs/14636202725
+
+  Run: https://github.com/r-prof/profile/actions/runs/10425484115
+
+  Run: https://github.com/r-prof/profile/actions/runs/10224248153
+
+- Roxygenize.
+
+- Remove pkgapi dependency.
+
+  Run: https://github.com/r-prof/profile/actions/runs/10208528515
+
+  Run: https://github.com/r-prof/profile/actions/runs/9728443545
+
+- Fix test (#17).
+
+- Add Aviator configuration.
+
+  Run: https://github.com/r-prof/profile/actions/runs/9691617073
+
+- Fix `dm_from_profile()`.
+
+- Use testthat edition 3.
 
 ## Continuous integration
 
@@ -38,209 +58,79 @@
 
 - Sync (#34).
 
-
-# profile 1.0.3.9019
-
-## Continuous integration
-
 - Avoid failure in fledge workflow if no changes (#32).
-
-
-# profile 1.0.3.9018
-
-## Continuous integration
 
 - Fetch tags for fledge workflow to avoid unnecessary NEWS entries (#31).
 
-
-# profile 1.0.3.9017
-
-## Continuous integration
-
 - Use larger retry count for lock-threads workflow (#30).
-
-
-# profile 1.0.3.9016
-
-## Continuous integration
 
 - Ignore errors when removing pkg-config on macOS (#29).
 
-
-# profile 1.0.3.9015
-
-## Continuous integration
-
 - Explicit permissions (#28).
 
-
-# profile 1.0.3.9014
-
-## Continuous integration
-
 - Use styler from main branch (#27).
-
-
-# profile 1.0.3.9013
-
-## Continuous integration
 
 - Need to install R on Ubuntu 24.04 (#26).
 
 - Use Ubuntu 24.04 and styler PR (#24).
 
+- Correctly detect branch protection (#23).
 
-# profile 1.0.3.9012
+- Use stable pak (#22).
 
-## Continuous integration
+- Trigger run (#21).
 
-  - Correctly detect branch protection (#23).
+  - ci: Trigger run
 
+  - ci: Latest changes
 
-# profile 1.0.3.9011
+- Use pkgdown branch (#20).
 
-## Continuous integration
+  - ci: Use pkgdown branch
 
-  - Use stable pak (#22).
+  - ci: Updates from duckdb
 
+- Install via R CMD INSTALL ., not pak (#19).
 
-# profile 1.0.3.9010
+  - ci: Install via R CMD INSTALL ., not pak
 
-## Continuous integration
+  - ci: Bump version of upload-artifact action
 
-  - Trigger run (#21).
-    
-      - ci: Trigger run
-    
-      - ci: Latest changes
+- Install local package for pkgdown builds.
 
+- Improve support for protected branches with fledge.
 
-# profile 1.0.3.9009
+- Improve support for protected branches, without fledge.
 
-## Continuous integration
+- Sync with latest developments.
 
-  - Use pkgdown branch (#20).
-    
-      - ci: Use pkgdown branch
-    
-      - ci: Updates from duckdb
-    
-      - ci: Trigger run
+- Use v2 instead of master.
 
+- Inline action.
 
-# profile 1.0.3.9008
+- Use dev roxygen2 and decor.
 
-## Continuous integration
+- Fix on Windows, tweak lock workflow.
 
-  - Install via R CMD INSTALL ., not pak (#19).
-    
-      - ci: Install via R CMD INSTALL ., not pak
-    
-      - ci: Bump version of upload-artifact action
+- Avoid checking bashisms on Windows.
 
+- Better commit message.
 
-# profile 1.0.3.9007
+- Bump versions, better default, consume custom matrix.
 
-## Chore
-
-  - Auto-update from GitHub Actions.
-    
-    Run: https://github.com/r-prof/profile/actions/runs/10425484115
-
-  - Auto-update from GitHub Actions.
-    
-    Run: https://github.com/r-prof/profile/actions/runs/10224248153
-
-  - Roxygenize.
-
-  - Remove pkgapi dependency.
-
-  - Auto-update from GitHub Actions.
-    
-    Run: https://github.com/r-prof/profile/actions/runs/10208528515
-
-  - Auto-update from GitHub Actions.
-    
-    Run: https://github.com/r-prof/profile/actions/runs/9728443545
-
-  - Fix test (#17).
-
-  - Add Aviator configuration.
-
-  - Auto-update from GitHub Actions.
-    
-    Run: https://github.com/r-prof/profile/actions/runs/9691617073
-
-## Continuous integration
-
-  - Install local package for pkgdown builds.
-
-  - Improve support for protected branches with fledge.
-
-  - Improve support for protected branches, without fledge.
-
-  - Sync with latest developments.
-
-  - Use v2 instead of master.
-
-  - Inline action.
-
-  - Use dev roxygen2 and decor.
-
-  - Fix on Windows, tweak lock workflow.
-
-  - Avoid checking bashisms on Windows.
-
-  - Better commit message.
-
-  - Bump versions, better default, consume custom matrix.
-
-  - Recent updates.
-
-
-# profile 1.0.3.9006
-
-- Merge pull request #15 from r-prof/snapshot-main-rcc-smoke-null.
-
-
-# profile 1.0.3.9005
-
-- Internal changes only.
-
-
-# profile 1.0.3.9004
-
-## Chore
-
-- Fix `dm_from_profile()`.
-
-- Use testthat edition 3.
+- Recent updates.
 
 ## Uncategorized
 
+- Merge pull request #15 from r-prof/snapshot-main-rcc-smoke-null.
+
+- Internal changes only.
+
 - Merged cran-1.0.3 into main.
-
-
-# profile 1.0.3.9003
-
-- Internal changes only.
-
-
-# profile 1.0.3.9002
-
-- Internal changes only.
-
-
-# profile 1.0.3.9001
 
 - Harmonize yaml formatting.
 
 - Revert changes to matrix section.
-
-
-# profile 1.0.3.9000
-
-- Internal changes only.
 
 
 # profile 1.0.3
