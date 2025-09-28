@@ -1,48 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
-# profile 1.0.3.9006
-
-- Merge pull request #15 from r-prof/snapshot-main-rcc-smoke-null.
-
-
-# profile 1.0.3.9005
-
-- Internal changes only.
-
-
-# profile 1.0.3.9004
+# profile 1.0.4
 
 ## Chore
+
+- Fix test (#17).
 
 - Fix `dm_from_profile()`.
 
 - Use testthat edition 3.
-
-## Uncategorized
-
-- Merged cran-1.0.3 into main.
-
-
-# profile 1.0.3.9003
-
-- Internal changes only.
-
-
-# profile 1.0.3.9002
-
-- Internal changes only.
-
-
-# profile 1.0.3.9001
-
-- Harmonize yaml formatting.
-
-- Revert changes to matrix section.
-
-
-# profile 1.0.3.9000
-
-- Internal changes only.
 
 
 # profile 1.0.3
