@@ -1,5 +1,44 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.3.9020
+
+## Chore
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-prof/profile/actions/runs/17451571354
+
+- Auto-update from GitHub Actions.
+
+  Run: https://github.com/r-prof/profile/actions/runs/14636202725
+
+## Continuous integration
+
+- Use reviewdog for external PRs (#45).
+
+- Cleanup and fix macOS (#44).
+
+- Format with air, check detritus, better handling of `extra-packages` (#43).
+
+- Enhance permissions for workflow (#42).
+
+- Permissions, better tests for missing suggests, lints (#41).
+
+- Only fail covr builds if token is given (#40).
+
+- Always use `_R_CHECK_FORCE_SUGGESTS_=false` (#39).
+
+- Correct installation of xml2 (#38).
+
+- Explain (#37).
+
+- Add xml2 for covr, print testthat results (#36).
+
+- Fix (#35).
+
+- Sync (#34).
+
+
 # profile 1.0.3.9019
 
 ## Continuous integration
