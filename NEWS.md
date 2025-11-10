@@ -1,5 +1,22 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9000
+
+## Chore
+
+- Use `check_installed()` (#18).
+
+## Continuous integration
+
+- Use workflows for fledge (#48).
+
+- Sync (#47).
+
+## fledge
+
+- CRAN release v1.0.4 (#46).
+
+
 # profile 1.0.4
 
 ## Chore
