@@ -43,3 +43,4 @@ Collate:
     'rprof-to-ds.R'
     'utils.R'
 Config/testthat/edition: 3
+Config/gha/extra-packages: RProtoBuf=?ignore-before-r=4.3.0
