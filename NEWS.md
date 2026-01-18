@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9004
+
+## Continuous integration
+
+- Ignore RProtoBuf for R \< 4.3, cannot be installed.
+
+
 # profile 1.0.4.9003
 
 ## Continuous integration
