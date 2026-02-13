@@ -27,15 +27,47 @@ get_sample_types_from_msg <- function(msg) {
   sample_types$type <- msg$string_table[sample_types$type + 1]
   sample_types$unit <- msg$string_table[sample_types$unit + 1]
 
-  sample_types[1, ]
+  # Check if memory profiling types are present
+  mem_types <- c("small_v", "big_v", "nodes", "dup_count")
+  has_memory <- all(mem_types %in% sample_types$type)
+
+  if (has_memory) {
+    # Keep first row (samples/count) and the memory rows
+    keep <- sample_types$type %in% c("samples", mem_types)
+    sample_types[keep, ]
+  } else {
+    sample_types[1, ]
+  }
 }
 
 get_samples_from_msg <- function(msg) {
+  # Determine which value indices to keep
+  n_types <- length(msg$sample_type)
+  all_types <- map(msg$sample_type, function(st) {
+    msg$string_table[as.integer(st$type) + 1]
+  })
+  all_types <- unlist(all_types)
+
+  mem_types <- c("small_v", "big_v", "nodes", "dup_count")
+  has_memory <- all(mem_types %in% all_types)
+
+  if (has_memory) {
+    mem_indices <- match(mem_types, all_types)
+  }
+
   samples <- map(msg$sample, function(s) {
-    tibble::tibble(
-      value = as.integer(s$value[[1]]),
+    values <- as.integer(s$value)
+    row <- tibble::tibble(
+      value = values[[1]],
       locations = list(tibble::tibble(location_id = as.integer(s$location_id)))
     )
+    if (has_memory) {
+      row$small_v <- values[[mem_indices[[1]]]]
+      row$big_v <- values[[mem_indices[[2]]]]
+      row$nodes <- values[[mem_indices[[3]]]]
+      row$dup_count <- values[[mem_indices[[4]]]]
+    }
+    row
   })
   samples <- tibble::as_tibble(do.call(rbind, samples))
   samples

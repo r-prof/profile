@@ -33,9 +33,14 @@ add_sample_types_to_msg <- function(sample_types, msg) {
 }
 
 add_samples_to_msg <- function(samples, msg) {
+  has_memory <- "small_v" %in% names(samples)
   msg$sample <- lapply(split_rows(samples), function(s) {
     s_msg <- RProtoBuf::new(perftools.profiles.Sample)
-    s_msg$value <- s$value
+    if (has_memory) {
+      s_msg$value <- c(s$value, s$small_v, s$big_v, s$nodes, s$dup_count)
+    } else {
+      s_msg$value <- s$value
+    }
     s_msg$location_id <- s$locations[[1]]$location_id
     s_msg
   })

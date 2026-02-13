@@ -19,10 +19,17 @@ rprof_to_ds <- function(rprof) {
 }
 
 get_sample_types_from_rprof <- function(rprof) {
-  tibble::tibble(
+  types <- tibble::tibble(
     type = "samples",
     unit = "count"
   )
+  if (!is.null(rprof$memory)) {
+    types <- rbind(types, tibble::tibble(
+      type = c("small_v", "big_v", "nodes", "dup_count"),
+      unit = c("cells", "cells", "bytes", "count")
+    ))
+  }
+  types
 }
 
 get_flat_rprof_from_rprof <- function(rprof) {
@@ -150,7 +157,19 @@ add_samples_to_flat_rprof <- function(flat_rprof) {
   .$locations <- map(.$locations, tibble::as_tibble, rownames = NULL)
 
   .$value <- 1L
-  . <- .[c("value", "locations")]
+
+  memory <- flat_rprof$rprof$memory
+  if (!is.null(memory)) {
+    # Memory data is indexed by trace line (sample), match by sample_id
+    mem <- memory[.$sample_id, , drop = FALSE]
+    .$small_v <- mem$small_v
+    .$big_v <- mem$big_v
+    .$nodes <- mem$nodes
+    .$dup_count <- mem$dup_count
+    . <- .[c("value", "locations", "small_v", "big_v", "nodes", "dup_count")]
+  } else {
+    . <- .[c("value", "locations")]
+  }
 
   flat_rprof$samples <- .
 
