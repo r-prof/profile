@@ -105,7 +105,6 @@ validate_profile <- function(x) {
   #' The locations are listed in inner-first order, i.e., the first location
   #' corresponds to the innermost entry of the stack trace.
   #' When memory profiling data is present, the `small_v`, `big_v`, `nodes`,
-
   #' and `dup_count` columns contain integer memory statistics per sample.
   #' All memory values must be nonnegative.
   if (has_memory) {
