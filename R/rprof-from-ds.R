@@ -1,7 +1,7 @@
 ds_to_rprof <- function(ds) {
   validate_profile(ds)
 
-  has_memory <- nrow(ds$sample_types) > 1
+  has_memory <- !all(is.na(ds$samples$small_v))
 
   . <- ds$locations
   . <- merge(., ds$functions[c("function_id", "system_name", "filename")], by = "function_id", sort = FALSE, all.x = TRUE)
