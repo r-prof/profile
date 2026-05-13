@@ -1,5 +1,24 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9008
+
+## Chore
+
+- Add ccache to `.gitignore` and `.Rbuildignore`.
+
+## Continuous integration
+
+- Create snapshot update PR against correct branch.
+
+- Add reference to `/apply-patch` workflow in commit message.
+
+- Clarify rationale for not deploying on schedule.
+
+- Only run fledge on pushes to main.
+
+- Tweak fledge workflow and ccache action.
+
+
 # profile 1.0.4.9007
 
 ## Continuous integration
