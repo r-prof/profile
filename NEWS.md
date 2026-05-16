@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9009
+
+- Ci: Unify fledge.yaml across cynkratemplate and fledge (#86).
+
+
 # profile 1.0.4.9008
 
 ## Chore
