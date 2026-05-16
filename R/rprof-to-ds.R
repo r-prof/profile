@@ -20,8 +20,8 @@ rprof_to_ds <- function(rprof) {
 
 get_sample_types_from_rprof <- function(rprof) {
   tibble::tibble(
-    type = "samples",
-    unit = "count"
+    type = c("samples", "small_v", "big_v", "nodes", "dup_count"),
+    unit = c("count", "cells", "cells", "bytes", "count")
   )
 }
 
@@ -150,7 +150,22 @@ add_samples_to_flat_rprof <- function(flat_rprof) {
   .$locations <- map(.$locations, tibble::as_tibble, rownames = NULL)
 
   .$value <- 1L
-  . <- .[c("value", "locations")]
+
+  memory <- flat_rprof$rprof$memory
+  if (!is.null(memory)) {
+    # Memory data is indexed by trace line (sample), match by sample_id
+    mem <- memory[.$sample_id, , drop = FALSE]
+    .$small_v <- mem$small_v
+    .$big_v <- mem$big_v
+    .$nodes <- mem$nodes
+    .$dup_count <- mem$dup_count
+  } else {
+    .$small_v <- NA_integer_
+    .$big_v <- NA_integer_
+    .$nodes <- NA_integer_
+    .$dup_count <- NA_integer_
+  }
+  . <- .[c("value", "locations", "small_v", "big_v", "nodes", "dup_count")]
 
   flat_rprof$samples <- .
 
