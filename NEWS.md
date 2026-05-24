@@ -1,5 +1,14 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9010
+
+## Continuous integration
+
+- Update ccache-action reference.
+
+- Bump action version.
+
+
 # profile 1.0.4.9009
 
 - Ci: Unify fledge.yaml across cynkratemplate and fledge (#86).
