@@ -1,5 +1,18 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9012
+
+## Bug fixes
+
+### ci
+
+- Emit empty package matrix when there are no (rev)deps.
+
+## Uncategorized
+
+- Ci: Harden `format-suggest` against `pull_request_target` pwn requests (#93).
+
+
 # profile 1.0.4.9011
 
 ## Continuous integration
