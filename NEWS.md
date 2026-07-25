@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9013
+
+## Continuous integration
+
+- Lock down `format-suggest` egress (audit → block).
+
+
 # profile 1.0.4.9012
 
 ## Bug fixes
