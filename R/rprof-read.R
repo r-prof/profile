@@ -35,9 +35,32 @@ read_rprof_ll <- function(path) {
   header <- 1L
   files <- grep("^#File ", lines)
   traces <- setdiff(seq_along(lines), c(header, files))
+
+  memory_profiling <- startsWith(lines[header], "memory profiling:")
+
+  # Strip memory data prefix from trace lines
+  memory <- NULL
+  trace_lines <- lines[traces]
+  if (memory_profiling && length(trace_lines) > 0) {
+    mem_rx <- "^:([0-9]+):([0-9]+):([0-9]+):([0-9]+):"
+    mem_matches <- regmatches(trace_lines, regexec(mem_rx, trace_lines))
+    has_mem <- vapply(mem_matches, length, integer(1)) > 0
+    if (any(has_mem)) {
+      memory <- tibble::tibble(
+        small_v = as.integer(vapply(mem_matches[has_mem], "[[", character(1), 2L)),
+        big_v = as.integer(vapply(mem_matches[has_mem], "[[", character(1), 3L)),
+        nodes = as.integer(vapply(mem_matches[has_mem], "[[", character(1), 4L)),
+        dup_count = as.integer(vapply(mem_matches[has_mem], "[[", character(1), 5L))
+      )
+      # Strip the memory prefix from trace lines
+      trace_lines <- sub(mem_rx, "", trace_lines)
+    }
+  }
+
   list(
     header = lines[header],
     files = lines[files],
-    traces = lines[traces]
+    traces = trace_lines,
+    memory = memory
   )
 }
