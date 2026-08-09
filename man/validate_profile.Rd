@@ -48,11 +48,14 @@ that is accepted by \code{\link[=package_version]{package_version()}}.
 The \code{sample_types} table has two character columns, \code{type} and \code{unit}.
 Additional columns with a leading dot in the name are allowed
 after the required columns.
-It is currently restricted to one row with values \code{"samples"} and \code{"count"},
+The first row must have values \code{"samples"} and \code{"count"},
 respectively.
+Additional rows may describe memory profiling data.
 
 The \code{samples} table has two columns, \code{value} (integer) and \code{locations}
 (list).
+When memory profiling data is present, the table also has integer columns
+\code{small_v}, \code{big_v}, \code{nodes}, and \code{dup_count}.
 Additional columns with a leading dot in the name are allowed
 after the required columns.
 The \code{value} column describes the number of consecutive samples for the
@@ -63,6 +66,9 @@ For each \code{location_id} value a corresponding observation in the \code{locat
 table must exist.
 The locations are listed in inner-first order, i.e., the first location
 corresponds to the innermost entry of the stack trace.
+When memory profiling data is present, the \code{small_v}, \code{big_v}, \code{nodes},
+and \code{dup_count} columns contain integer memory statistics per sample.
+All memory values must be nonnegative.
 
 The \code{locations} table has three integer columns, \code{location_id},
 \code{function_id}, and \code{line}.
