@@ -34,8 +34,8 @@ The data is available to the user for inspection and manipulation in a [document
 You can install profile from GitHub with:
 
 ```{r gh-installation, eval = FALSE}
-# install.packages("remotes")
-remotes::install_github("r-prof/profile")
+# install.packages("pak")
+pak::pak("r-prof/profile")
 ```
 
 ## Example
