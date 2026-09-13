@@ -13,7 +13,8 @@
 [![CRAN status](https://www.r-pkg.org/badges/version/profile)](https://cran.r-project.org/package=profile)
 <!-- badges: end -->
 
-The goal of profile is to read and write files that contain run time profiling data. Currently, *profile* supports:
+The goal of profile is to read and write files that contain run time profiling data.
+Currently, *profile* supports:
 
 - Files created by [`Rprof()`](https://www.rdocumentation.org/packages/utils/versions/3.4.3/topics/Rprof)
 - `.proto` files written by [`pprof -proto`](https://github.com/google/pprof), these can also be read by `pprof`
@@ -54,4 +55,5 @@ write_pprof(ds, file.path(tempdir(), "1.pb.gz"))
 
 ## Code of Conduct
 
-Please note that the profile project is released with a [Contributor Code of Conduct](https://r-prof.github.io/profile/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the profile project is released with a [Contributor Code of Conduct](https://r-prof.github.io/profile/CODE_OF_CONDUCT.html).
+By contributing to this project, you agree to abide by its terms.
