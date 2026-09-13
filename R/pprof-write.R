@@ -1,6 +1,6 @@
 #' @details
 #' Use the [`pprof` tool](https://github.com/google/pprof) in conjunction with the `_pprof()` functions.
-#'  The tool is available in the \pkg{pprof} R package, or (in newer versions) via `go get github.com/google/pprof`.
+#' The tool is available in the \pkg{pprof} R package, or (in newer versions) via `go get github.com/google/pprof`.
 #'
 #' @param x Profiler data, see [validate_profile()]
 #' @export
