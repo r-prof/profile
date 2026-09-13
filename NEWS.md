@@ -1,5 +1,22 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9019
+
+## Features
+
+### ci
+
+- Align the `revdep2`, `revdep4` and `revdepx` subsystems with `rigraph`.
+
+## Uncategorized
+
+- Perf(revdepx): Compile the revdeps' checks through ccache.
+
+- Fix(ci): Survive an archived CRAN package, and install it from where it still lives.
+
+- Ci: Fail the roxygenize step on roxygen2 warnings (#111).
+
+
 # profile 1.0.4.9018
 
 ## Bug fixes
