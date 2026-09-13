@@ -2,10 +2,10 @@
 #'
 #' @description
 #' The data format is stable between major releases.
-#' In case of major updates, compatibility functions will be provided.
+#'  In case of major updates, compatibility functions will be provided.
 #'
 #' The `validate_profile()` function checks a profile data object for compatibility with the specification.
-#' Versioning information embedded in the data is considered.
+#'  Versioning information embedded in the data is considered.
 #'
 #' @section Data model:
 #' \figure{dm.png}
@@ -150,8 +150,8 @@ format.profile_data <- function(x, ...) {
 #'
 #' @description
 #' The `dm_from_profile()` function converts a profile to a dm object.
-#' The \pkg{dm} package must be installed.
-#' See [dm::dm()] for more information.
+#'  The \pkg{dm} package must be installed.
+#'  See [dm::dm()] for more information.
 #'
 #' @rdname validate_profile
 #' @export
