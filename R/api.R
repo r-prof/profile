@@ -64,18 +64,19 @@ validate_profile <- function(x) {
   stopifnot(undotted(names(x$sample_types)) == c("type", "unit"))
   stopifnot(is.character(x$sample_types$type))
   stopifnot(is.character(x$sample_types$unit))
-  #' It is currently restricted to one row with values `"samples"` and `"count"`,
-  #' respectively.
-  stopifnot(nrow(x$sample_types) == 1)
-  stopifnot(x$sample_types$type == "samples")
-  stopifnot(x$sample_types$unit == "count")
+  #' It always has five rows describing the sample count and memory profiling
+  #' data types.
+  stopifnot(nrow(x$sample_types) == 5)
+  stopifnot(x$sample_types$type == c("samples", "small_v", "big_v", "nodes", "dup_count"))
+  stopifnot(x$sample_types$unit == c("count", "cells", "cells", "bytes", "count"))
 
   #'
-  #' The `samples` table has two columns, `value` (integer) and `locations`
-  #' (list).
+  #' The `samples` table has six columns: `value` (integer), `locations`
+  #' (list), and integer columns `small_v`, `big_v`, `nodes`, and `dup_count`
+  #' for memory profiling data.
   #' Additional columns with a leading dot in the name are allowed
   #' after the required columns.
-  stopifnot(undotted(names(x$samples)) == c("value", "locations"))
+  stopifnot(undotted(names(x$samples)) == c("value", "locations", "small_v", "big_v", "nodes", "dup_count"))
   stopifnot(is.integer(x$samples$value))
   stopifnot(is.list(x$samples$locations))
   #' The `value` column describes the number of consecutive samples for the
@@ -91,6 +92,18 @@ validate_profile <- function(x) {
   stopifnot(unlist(map(x$samples$locations, "[[", "location_id")) %in% x$locations$location_id)
   #' The locations are listed in inner-first order, i.e., the first location
   #' corresponds to the innermost entry of the stack trace.
+  #' The `small_v`, `big_v`, `nodes`, and `dup_count` columns contain integer
+  #' memory statistics per sample. When memory profiling data is not available,
+  #' these columns are all `NA`. When present, all memory values must be
+  #' nonnegative.
+  stopifnot(is.integer(x$samples$small_v))
+  stopifnot(is.integer(x$samples$big_v))
+  stopifnot(is.integer(x$samples$nodes))
+  stopifnot(is.integer(x$samples$dup_count))
+  stopifnot(is.na(x$samples$small_v) | x$samples$small_v >= 0L)
+  stopifnot(is.na(x$samples$big_v) | x$samples$big_v >= 0L)
+  stopifnot(is.na(x$samples$nodes) | x$samples$nodes >= 0L)
+  stopifnot(is.na(x$samples$dup_count) | x$samples$dup_count >= 0L)
 
   #'
   #' The `locations` table has three integer columns, `location_id`,

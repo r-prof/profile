@@ -2,6 +2,8 @@ ds_to_msg <- function(ds) {
   validate_profile(ds)
   provide_proto()
 
+  has_memory <- !all(is.na(ds$samples$small_v))
+
   msg <- RProtoBuf::new(perftools.profiles.Profile)
 
   msg$string_table <- unique(c(
@@ -13,14 +15,17 @@ ds_to_msg <- function(ds) {
     ds$functions$filename
   ))
 
-  add_sample_types_to_msg(ds$sample_types, msg)
+  add_sample_types_to_msg(ds$sample_types, msg, has_memory)
   add_samples_to_msg(ds$samples, msg)
   add_locations_to_msg(ds$locations, msg)
   add_functions_to_msg(ds$functions, msg)
   msg
 }
 
-add_sample_types_to_msg <- function(sample_types, msg) {
+add_sample_types_to_msg <- function(sample_types, msg, has_memory) {
+  if (!has_memory) {
+    sample_types <- sample_types[1, , drop = FALSE]
+  }
   sample_types$type <- match(sample_types$type, msg$string_table) - 1L
   sample_types$unit <- match(sample_types$unit, msg$string_table) - 1L
 
@@ -33,9 +38,14 @@ add_sample_types_to_msg <- function(sample_types, msg) {
 }
 
 add_samples_to_msg <- function(samples, msg) {
+  has_memory <- !all(is.na(samples$small_v))
   msg$sample <- lapply(split_rows(samples), function(s) {
     s_msg <- RProtoBuf::new(perftools.profiles.Sample)
-    s_msg$value <- s$value
+    if (has_memory) {
+      s_msg$value <- c(s$value, s$small_v, s$big_v, s$nodes, s$dup_count)
+    } else {
+      s_msg$value <- s$value
+    }
     s_msg$location_id <- s$locations[[1]]$location_id
     s_msg
   })
