@@ -1,10 +1,20 @@
 ---
-output: downlit::readme_document
+output: cynkratemplate::readme_document
 ---
 
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+<!-- README.md and index.md are generated from README.Rmd.
+     Edit that file and render it the usual way: rmarkdown::render(),
+     devtools::build_readme(), or the Knit button. The cynkratemplate
+     package must be installed; it supplies the output format. -->
 
 ```{r setup, include = FALSE}
+# Keep the render reproducible: `Rprof()` samples on a wall-clock timer, so
+# how many samples it collects depends on how fast and how loaded the
+# machine is. Normalise the count, as other READMEs here normalise memory
+# addresses.
+knitr::knit_hooks$set(document = function(x, options) {
+  gsub("Profile data: [0-9]+ samples", "Profile data: <n> samples", x)
+})
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
