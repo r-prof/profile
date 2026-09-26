@@ -20,8 +20,8 @@ The data is available to the user for inspection and manipulation in a [document
 You can install profile from GitHub with:
 
 <pre class='chroma'>
-<span class='c'># install.packages("remotes")</span>
-<span class='nf'>remotes</span><span class='nf'>::</span><span class='nf'><a href='https://remotes.r-lib.org/reference/install_github.html'>install_github</a></span><span class='o'>(</span><span class='s'>"r-prof/profile"</span><span class='o'>)</span></pre>
+<span class='c'># install.packages("pak")</span>
+<span class='nf'>pak</span><span class='nf'>::</span><span class='nf'><a href='https://pak.r-lib.org/reference/pak.html'>pak</a></span><span class='o'>(</span><span class='s'>"r-prof/profile"</span><span class='o'>)</span></pre>
 
 ## Example
 
