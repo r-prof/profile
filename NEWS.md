@@ -1,5 +1,26 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9022
+
+## Bug fixes
+
+### ci
+
+- Restore the custom `before-install` action (#93).
+
+## Chore
+
+- Auto-update from GitHub Actions (#95).
+
+## Continuous integration
+
+- Run coverage checks after pkgdown push.
+
+## Uncategorized
+
+- Feat(ci): Render `README.md` and `index.md` in CI (cynkra/cynkratemplate#118).
+
+
 # profile 1.0.4.9021
 
 ## Documentation
