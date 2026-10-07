@@ -20,6 +20,29 @@ Currently, *profile* supports:
 
 The data is available to the user for inspection and manipulation in a [documented stable data format](https://r-prof.github.io/profile/reference/validate_profile.html).
 
+## Goals and non-goals
+
+profile aims to:
+
+- Define one documented data format for profiler data,
+  a named list of tibbles that carries its own version and is stable between major releases.
+- Read and write both supported file formats,
+  so that a profile recorded by `Rprof()` can be handed to `pprof`, and the other way round.
+- Validate whatever passes through: readers call `validate_profile()` on their result, writers on their input.
+- Keep the data in plain tibbles that can be inspected and manipulated, with `dm_from_profile()` for the relational view.
+
+It is explicitly not trying to:
+
+- Collect profiles.
+  Sampling is `Rprof()`'s job, profile starts from the file it wrote.
+- Analyse or visualise profiles.
+  The proftools, profvis, and prof.tree packages and the `pprof` tool work on the files profile reads and writes.
+- Ship the `pprof` tool itself, which comes from the pprof R package or from `go get github.com/google/pprof`.
+- Represent everything the pprof format can express:
+  the data model holds a single sample type, `samples` measured in `count`.
+- Require RProtoBuf for every user:
+  it is a suggested package, needed only by `read_pprof()` and `write_pprof()`.
+
 ## Installation
 
 You can install profile from GitHub with:
