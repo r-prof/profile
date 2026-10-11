@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9023
+
+## Chore
+
+- Auto-update from GitHub Actions (#96).
+
+
 # profile 1.0.4.9022
 
 ## Bug fixes
