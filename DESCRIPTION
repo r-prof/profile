@@ -2,13 +2,13 @@ Package: profile
 Title: Read, Manipulate, and Write Profiler Data
 Version: 1.0.4.9024
 Date: 2026-11-27
-Authors@R: 
-    c(
-      person("Kirill", "Müller", role = c("aut", "cre"), email = "kirill@cynkra.com", comment = c(ORCID = "0000-0002-1416-3412")),
-      person("R Consortium", role = "fnd")
-    )
-Description: Defines a data structure for profiler data, and methods to read and
-    write from the 'Rprof' and 'pprof' file formats.
+Authors@R: c(
+    person("Kirill", "Müller", , "kirill@cynkra.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1416-3412")),
+    person("R Consortium", role = "fnd")
+  )
+Description: Defines a data structure for profiler data, and methods to
+    read and write from the 'Rprof' and 'pprof' file formats.
 License: MIT + file LICENSE
 URL: https://r-prof.github.io/profile/, https://github.com/r-prof/profile
 BugReports: https://github.com/r-prof/profile/issues
@@ -20,11 +20,14 @@ Imports:
     withr
 Suggests: 
     covr,
-    dm,
     DiagrammeR,
     DiagrammeRsvg,
+    dm,
     RProtoBuf,
     testthat (>= 3.0.0)
+Config/gha/extra-packages: RProtoBuf=?ignore-before-r=4.3.0
+Config/roxygen2/version: 8.1.1.9000
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE, roclets = c("rd", "namespace", "collate"))
 Collate: 
@@ -41,6 +44,3 @@ Collate:
     'rprof-from-ds.R'
     'rprof-to-ds.R'
     'utils.R'
-Config/testthat/edition: 3
-Config/gha/extra-packages: RProtoBuf=?ignore-before-r=4.3.0
-Config/roxygen2/version: 8.1.1.9000
