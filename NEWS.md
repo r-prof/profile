@@ -1,5 +1,12 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9024
+
+## Continuous integration
+
+- Sync the workflows with cynkra/cynkratemplate (#98).
+
+
 # profile 1.0.4.9023
 
 ## Chore
