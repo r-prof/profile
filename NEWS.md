@@ -1,5 +1,16 @@
 <!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
 
+# profile 1.0.4.9025
+
+## Chore
+
+- Tidy DESCRIPTION with usethis::use_tidy_description() (#101).
+
+## Continuous integration
+
+- Sync the workflows with cynkra/cynkratemplate (#100).
+
+
 # profile 1.0.4.9024
 
 ## Continuous integration
